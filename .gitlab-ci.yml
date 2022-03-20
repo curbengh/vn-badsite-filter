@@ -1,0 +1,70 @@
+image: node:lts-alpine
+
+include:
+  - template: Security/Secret-Detection.gitlab-ci.yml
+
+# Only run pipeline when scheduled or "Run pipeline" in the main branch
+workflow:
+  rules:
+    - if: '$CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH && ($CI_PIPELINE_SOURCE == "schedule" || $CI_PIPELINE_SOURCE == "web")'
+
+build_job:
+  stage: build
+
+  before_script:
+    - apk update && apk add brotli curl git grep
+
+  script:
+    - sh src/script.sh
+    - find public -type f -regex '.*\.\(txt\|conf\|tpl\|rules\)$' -exec gzip -f -k -9 {} \;
+    - find public -type f -regex '.*\.\(txt\|conf\|tpl\|rules\)$' -exec brotli -f -k -9 {} \;
+
+  artifacts:
+    paths:
+      - tmp
+      - public
+
+pages:
+  stage: deploy
+
+  dependencies:
+    - build_job
+
+  script:
+    - echo
+
+  artifacts:
+    paths:
+      - public
+
+cloudflare:
+  stage: deploy
+
+  before_script:
+      - apk update && apk add curl
+
+  script:
+    - curl -X POST "https://api.cloudflare.com/client/v4/pages/webhooks/deploy_hooks/$CLOUDFLARE_BUILD_HOOK"
+
+  rules:
+    - if: $CLOUDFLARE_BUILD_HOOK
+
+netlify:
+  stage: deploy
+
+  dependencies:
+    - build_job
+
+  before_script:
+    - npm install netlify-cli -g
+    - netlify --telemetry-disable
+
+  script:
+    - netlify deploy --dir=public --prod
+
+  cache:
+    paths:
+      - node_modules/
+
+  rules:
+    - if: $NETLIFY_SITE_ID

@@ -1,0 +1,59 @@
+name: Pages
+
+on:
+  schedule:
+    - cron: "0 0 * * 6"
+  workflow_dispatch:
+
+jobs:
+  pages:
+    runs-on: ubuntu-latest
+    container: node:lts-alpine
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install Dependencies
+        run: |
+          apk update
+          apk add brotli curl git grep
+      - name: Build
+        run: sh ./src/script.sh
+      - name: Compress
+        run: |
+          find public -type f -regex '.*\.\(txt\|conf\|tpl\|rules\)$' -exec gzip -f -k -9 {} \;
+          find public -type f -regex '.*\.\(txt\|conf\|tpl\|rules\)$' -exec brotli -f -k -9 {} \;
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
+          force_orphan: true
+      - name: 'Upload Public Folder'
+        uses: actions/upload-artifact@v2
+        with:
+          name: public
+          path: ./public
+          retention-days: 30
+      - name: 'Upload Tmp Folder'
+        uses: actions/upload-artifact@v2
+        with:
+          name: tmp
+          path: ./tmp
+          retention-days: 30
+      - name: Check GitLab Status
+        env:
+          GITHUB_ENV: ${{ env.GITHUB_ENV }}
+        run: sh ./src/gitlab_status.sh
+      - name: Cloudflare Pages
+        env:
+          CLOUDFLARE_BUILD_HOOK: ${{ secrets.CLOUDFLARE_BUILD_HOOK }}
+        if: ${{ env.CLOUDFLARE_BUILD_HOOK != 0 && env.GITLAB_STATUS == 'down' }}
+        run: curl -X POST "https://api.cloudflare.com/client/v4/pages/webhooks/deploy_hooks/${{ env.CLOUDFLARE_BUILD_HOOK }}"
+      - name: Netlify
+        env:
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+        if: ${{ env.NETLIFY_SITE_ID != 0 && env.GITLAB_STATUS == 'down' }}
+        run: |
+          npm install netlify-cli -g
+          netlify --telemetry-disable
+          netlify deploy --dir=public --prod
