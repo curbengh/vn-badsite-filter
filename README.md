@@ -1,5 +1,7 @@
 # VN Malicious Domains Blocklist
 
+> Announcement (2022/05/21): curben.gitlab.io has been migrated to malware-filter.gitlab.io
+
 A blocklist of malicious (malware, scam, phishing) websites that are targeting Vietnamese users. Sourced from [api.chongluadao.vn](https://chongluadao.vn).
 
 There are multiple formats available, refer to the appropriate section according to the program used:
@@ -19,27 +21,27 @@ There are multiple formats available, refer to the appropriate section according
 - [Snort3](#snort3)
 - [Suricata](#suricata)
 
-Not sure which format to choose? See [Compatibility](https://gitlab.com/curben/malware-filter/wikis/compatibility) page in the wiki.
+Not sure which format to choose? See [Compatibility](https://gitlab.com/malware-filter/malware-filter/wikis/compatibility) page in the wiki.
 
 Check out my other filters:
 
-- [urlhaus-filter](https://gitlab.com/curben/urlhaus-filter)
-- [phishing-filter](https://gitlab.com/curben/phishing-filter)
-- [pup-filter](https://gitlab.com/curben/pup-filter)
-- [tracking-filter](https://gitlab.com/curben/tracking-filter)
+- [urlhaus-filter](https://gitlab.com/malware-filter/urlhaus-filter)
+- [phishing-filter](https://gitlab.com/malware-filter/phishing-filter)
+- [pup-filter](https://gitlab.com/malware-filter/pup-filter)
+- [tracking-filter](https://gitlab.com/malware-filter/tracking-filter)
 
 ## URL-based
 
 Import the following URL into uBO to subscribe:
 
-- https://curben.gitlab.io/malware-filter/vn-badsite-filter.txt
+- https://malware-filter.gitlab.io/malware-filter/vn-badsite-filter.txt
 
 <details>
 <summary>Mirrors</summary>
 
 - https://curbengh.github.io/malware-filter/vn-badsite-filter.txt
 - https://curbengh.github.io/vn-badsite-filter/vn-badsite-filter.txt
-- https://curben.gitlab.io/vn-badsite-filter/vn-badsite-filter.txt
+- https://malware-filter.gitlab.io/vn-badsite-filter/vn-badsite-filter.txt
 - https://malware-filter.pages.dev/vn-badsite-filter.txt
 - https://vn-badsite-filter.pages.dev/vn-badsite-filter.txt
 
@@ -51,14 +53,14 @@ Import the following URL into uBO to subscribe:
 
 Import the following URL into AdGuard browser extensions to subscribe (includes online and **offline** malicious websites):
 
-- https://curben.gitlab.io/malware-filter/vn-badsite-filter-ag.txt
+- https://malware-filter.gitlab.io/malware-filter/vn-badsite-filter-ag.txt
 
 <details>
 <summary>Mirrors</summary>
 
 - https://curbengh.github.io/malware-filter/vn-badsite-filter-ag.txt
 - https://curbengh.github.io/vn-badsite-filter/vn-badsite-filter-ag.txt
-- https://curben.gitlab.io/vn-badsite-filter/vn-badsite-filter-ag.txt
+- https://malware-filter.gitlab.io/vn-badsite-filter/vn-badsite-filter-ag.txt
 - https://malware-filter.pages.dev/vn-badsite-filter-ag.txt
 - https://vn-badsite-filter.pages.dev/vn-badsite-filter-ag.txt
 
@@ -70,14 +72,14 @@ _Requires Vivaldi Desktop/Android 3.3+, blocking level must be at least "Block T
 
 Import the following URL into Vivaldi's **Tracker Blocking Sources** to subscribe (includes online and **offline** malicious websites):
 
-- https://curben.gitlab.io/malware-filter/vn-badsite-filter-vivaldi.txt
+- https://malware-filter.gitlab.io/malware-filter/vn-badsite-filter-vivaldi.txt
 
 <details>
 <summary>Mirrors</summary>
 
 - https://curbengh.github.io/malware-filter/vn-badsite-filter-vivaldi.txt
 - https://curbengh.github.io/vn-badsite-filter/vn-badsite-filter-vivaldi.txt
-- https://curben.gitlab.io/vn-badsite-filter/vn-badsite-filter-vivaldi.txt
+- https://malware-filter.gitlab.io/vn-badsite-filter/vn-badsite-filter-vivaldi.txt
 - https://malware-filter.pages.dev/vn-badsite-filter-vivaldi.txt
 - https://vn-badsite-filter.pages.dev/vn-badsite-filter-vivaldi.txt
 
@@ -87,14 +89,14 @@ Import the following URL into Vivaldi's **Tracker Blocking Sources** to subscrib
 
 This blocklist includes domains and IP addresses.
 
-- https://curben.gitlab.io/malware-filter/vn-badsite-filter-domains.txt
+- https://malware-filter.gitlab.io/malware-filter/vn-badsite-filter-domains.txt
 
 <details>
 <summary>Mirrors</summary>
 
 - https://curbengh.github.io/malware-filter/vn-badsite-filter-domains.txt
 - https://curbengh.github.io/vn-badsite-filter/vn-badsite-filter-domains.txt
-- https://curben.gitlab.io/vn-badsite-filter/vn-badsite-filter-domains.txt
+- https://malware-filter.gitlab.io/vn-badsite-filter/vn-badsite-filter-domains.txt
 - https://malware-filter.pages.dev/vn-badsite-filter-domains.txt
 - https://vn-badsite-filter.pages.dev/vn-badsite-filter-domains.txt
 
@@ -104,14 +106,14 @@ This blocklist includes domains and IP addresses.
 
 This AdGuard Home-compatible blocklist includes domains and IP addresses.
 
-- https://curben.gitlab.io/malware-filter/vn-badsite-filter-agh.txt
+- https://malware-filter.gitlab.io/malware-filter/vn-badsite-filter-agh.txt
 
 <details>
 <summary>Mirrors</summary>
 
 - https://curbengh.github.io/malware-filter/vn-badsite-filter-agh.txt
 - https://curbengh.github.io/vn-badsite-filter/vn-badsite-filter-agh.txt
-- https://curben.gitlab.io/vn-badsite-filter/vn-badsite-filter-agh.txt
+- https://malware-filter.gitlab.io/vn-badsite-filter/vn-badsite-filter-agh.txt
 - https://malware-filter.pages.dev/vn-badsite-filter-agh.txt
 - https://vn-badsite-filter.pages.dev/vn-badsite-filter-agh.txt
 
@@ -121,14 +123,14 @@ This AdGuard Home-compatible blocklist includes domains and IP addresses.
 
 This blocklist includes domains only.
 
-- https://curben.gitlab.io/malware-filter/vn-badsite-filter-hosts.txt
+- https://malware-filter.gitlab.io/malware-filter/vn-badsite-filter-hosts.txt
 
 <details>
 <summary>Mirrors</summary>
 
 - https://curbengh.github.io/malware-filter/vn-badsite-filter-hosts.txt
 - https://curbengh.github.io/vn-badsite-filter/vn-badsite-filter-hosts.txt
-- https://curben.gitlab.io/vn-badsite-filter/vn-badsite-filter-hosts.txt
+- https://malware-filter.gitlab.io/vn-badsite-filter/vn-badsite-filter-hosts.txt
 - https://malware-filter.pages.dev/vn-badsite-filter-hosts.txt
 - https://vn-badsite-filter.pages.dev/vn-badsite-filter-hosts.txt
 
@@ -145,7 +147,7 @@ This blocklist includes domains only.
 mkdir -p /usr/local/etc/dnsmasq/
 
 # Create a new cron job for daily update
-printf '#!/bin/sh\ncurl -L "https://curben.gitlab.io/malware-filter/vn-badsite-filter-dnsmasq.conf" -o "/usr/local/etc/dnsmasq/vn-badsite-filter-dnsmasq.conf"\n' > /etc/cron.daily/vn-badsite-filter
+printf '#!/bin/sh\ncurl -L "https://malware-filter.gitlab.io/malware-filter/vn-badsite-filter-dnsmasq.conf" -o "/usr/local/etc/dnsmasq/vn-badsite-filter-dnsmasq.conf"\n' > /etc/cron.daily/vn-badsite-filter
 
 # cron job requires execution permission
 chmod 755 /etc/cron.daily/vn-badsite-filter
@@ -154,14 +156,14 @@ chmod 755 /etc/cron.daily/vn-badsite-filter
 printf "\nconf-file=/usr/local/etc/dnsmasq/vn-badsite-filter-dnsmasq.conf\n" >> /etc/dnsmasq.conf
 ```
 
-- https://curben.gitlab.io/malware-filter/vn-badsite-filter-dnsmasq.conf
+- https://malware-filter.gitlab.io/malware-filter/vn-badsite-filter-dnsmasq.conf
 
 <details>
 <summary>Mirrors</summary>
 
 - https://curbengh.github.io/malware-filter/vn-badsite-filter-dnsmasq.conf
 - https://curbengh.github.io/vn-badsite-filter/vn-badsite-filter-dnsmasq.conf
-- https://curben.gitlab.io/vn-badsite-filter/vn-badsite-filter-dnsmasq.conf
+- https://malware-filter.gitlab.io/vn-badsite-filter/vn-badsite-filter-dnsmasq.conf
 - https://malware-filter.pages.dev/vn-badsite-filter-dnsmasq.conf
 - https://vn-badsite-filter.pages.dev/vn-badsite-filter-dnsmasq.conf
 
@@ -178,7 +180,7 @@ This blocklist includes domains only.
 mkdir -p /usr/local/etc/bind/
 
 # Create a new cron job for daily update
-printf '#!/bin/sh\ncurl -L "https://curben.gitlab.io/malware-filter/vn-badsite-filter-bind.conf" -o "/usr/local/etc/bind/vn-badsite-filter-bind.conf"\n' > /etc/cron.daily/vn-badsite-filter
+printf '#!/bin/sh\ncurl -L "https://malware-filter.gitlab.io/malware-filter/vn-badsite-filter-bind.conf" -o "/usr/local/etc/bind/vn-badsite-filter-bind.conf"\n' > /etc/cron.daily/vn-badsite-filter
 
 # cron job requires execution permission
 chmod 755 /etc/cron.daily/vn-badsite-filter
@@ -205,14 +207,14 @@ $TTL    86400   ; one day
 
 Zone file is derived from [here](https://github.com/tomzuu/blacklist-named/blob/master/null.zone.file).
 
-- https://curben.gitlab.io/malware-filter/vn-badsite-filter-bind.conf
+- https://malware-filter.gitlab.io/malware-filter/vn-badsite-filter-bind.conf
 
 <details>
 <summary>Mirrors</summary>
 
 - https://curbengh.github.io/malware-filter/vn-badsite-filter-bind.conf
 - https://curbengh.github.io/vn-badsite-filter/vn-badsite-filter-bind.conf
-- https://curben.gitlab.io/vn-badsite-filter/vn-badsite-filter-bind.conf
+- https://malware-filter.gitlab.io/vn-badsite-filter/vn-badsite-filter-bind.conf
 - https://malware-filter.pages.dev/vn-badsite-filter-bind.conf
 - https://vn-badsite-filter.pages.dev/vn-badsite-filter-bind.conf
 
@@ -222,14 +224,14 @@ Zone file is derived from [here](https://github.com/tomzuu/blacklist-named/blob/
 
 This blocklist includes domains only.
 
-- https://curben.gitlab.io/malware-filter/vn-badsite-filter-rpz.conf
+- https://malware-filter.gitlab.io/malware-filter/vn-badsite-filter-rpz.conf
 
 <details>
 <summary>Mirrors</summary>
 
 - https://curbengh.github.io/malware-filter/vn-badsite-filter-rpz.conf
 - https://curbengh.github.io/vn-badsite-filter/vn-badsite-filter-rpz.conf
-- https://curben.gitlab.io/vn-badsite-filter/vn-badsite-filter-rpz.conf
+- https://malware-filter.gitlab.io/vn-badsite-filter/vn-badsite-filter-rpz.conf
 - https://malware-filter.pages.dev/vn-badsite-filter-rpz.conf
 - https://vn-badsite-filter.pages.dev/vn-badsite-filter-rpz.conf
 
@@ -246,7 +248,7 @@ This blocklist includes domains only.
 mkdir -p /usr/local/etc/unbound/
 
 # Create a new cron job for daily update
-printf '#!/bin/sh\ncurl -L "https://curben.gitlab.io/malware-filter/vn-badsite-filter-unbound.conf" -o "/usr/local/etc/unbound/vn-badsite-filter-unbound.conf"\n' > /etc/cron.daily/vn-badsite-filter
+printf '#!/bin/sh\ncurl -L "https://malware-filter.gitlab.io/malware-filter/vn-badsite-filter-unbound.conf" -o "/usr/local/etc/unbound/vn-badsite-filter-unbound.conf"\n' > /etc/cron.daily/vn-badsite-filter
 
 # cron job requires execution permission
 chmod 755 /etc/cron.daily/vn-badsite-filter
@@ -255,14 +257,14 @@ chmod 755 /etc/cron.daily/vn-badsite-filter
 printf '\n  include: "/usr/local/etc/unbound/vn-badsite-filter-unbound.conf"\n' >> /etc/unbound/unbound.conf
 ```
 
-- https://curben.gitlab.io/malware-filter/vn-badsite-filter-unbound.conf
+- https://malware-filter.gitlab.io/malware-filter/vn-badsite-filter-unbound.conf
 
 <details>
 <summary>Mirrors</summary>
 
 - https://curbengh.github.io/malware-filter/vn-badsite-filter-unbound.conf
 - https://curbengh.github.io/vn-badsite-filter/vn-badsite-filter-unbound.conf
-- https://curben.gitlab.io/vn-badsite-filter/vn-badsite-filter-unbound.conf
+- https://malware-filter.gitlab.io/vn-badsite-filter/vn-badsite-filter-unbound.conf
 - https://malware-filter.pages.dev/vn-badsite-filter-unbound.conf
 - https://vn-badsite-filter.pages.dev/vn-badsite-filter-unbound.conf
 
@@ -277,8 +279,8 @@ printf '\n  include: "/usr/local/etc/unbound/vn-badsite-filter-unbound.conf"\n' 
 mkdir -p /etc/dnscrypt-proxy/
 
 # Create a new cron job for daily update
-printf '#!/bin/sh\ncurl -L "https://curben.gitlab.io/malware-filter/vn-badsite-filter-dnscrypt-blocked-names.txt" -o "/etc/dnscrypt-proxy/vn-badsite-filter-dnscrypt-blocked-names.txt"\n' > /etc/cron.daily/vn-badsite-filter
-printf '\ncurl -L "https://curben.gitlab.io/malware-filter/vn-badsite-filter-dnscrypt-blocked-ips.txt" -o "/etc/dnscrypt-proxy/vn-badsite-filter-dnscrypt-blocked-ips.txt"\n' >> /etc/cron.daily/vn-badsite-filter
+printf '#!/bin/sh\ncurl -L "https://malware-filter.gitlab.io/malware-filter/vn-badsite-filter-dnscrypt-blocked-names.txt" -o "/etc/dnscrypt-proxy/vn-badsite-filter-dnscrypt-blocked-names.txt"\n' > /etc/cron.daily/vn-badsite-filter
+printf '\ncurl -L "https://malware-filter.gitlab.io/malware-filter/vn-badsite-filter-dnscrypt-blocked-ips.txt" -o "/etc/dnscrypt-proxy/vn-badsite-filter-dnscrypt-blocked-ips.txt"\n' >> /etc/cron.daily/vn-badsite-filter
 
 # cron job requires execution permission
 chmod 755 /etc/cron.daily/vn-badsite-filter
@@ -294,21 +296,21 @@ Configure dnscrypt-proxy to use the blocklist:
 +  blocked_ips_file = '/etc/dnscrypt-proxy/vn-badsite-filter-dnscrypt-blocked-ips.txt'
 ```
 
-- https://curben.gitlab.io/malware-filter/vn-badsite-filter-dnscrypt-blocked-names.txt
-- https://curben.gitlab.io/malware-filter/vn-badsite-filter-dnscrypt-blocked-ips.txt
+- https://malware-filter.gitlab.io/malware-filter/vn-badsite-filter-dnscrypt-blocked-names.txt
+- https://malware-filter.gitlab.io/malware-filter/vn-badsite-filter-dnscrypt-blocked-ips.txt
 
 <details>
 <summary>Mirrors</summary>
 
 - https://curbengh.github.io/malware-filter/vn-badsite-filter-dnscrypt-blocked-names.txt
 - https://curbengh.github.io/vn-badsite-filter/vn-badsite-filter-dnscrypt-blocked-names.txt
-- https://curben.gitlab.io/vn-badsite-filter/vn-badsite-filter-dnscrypt-blocked-names.txt
+- https://malware-filter.gitlab.io/vn-badsite-filter/vn-badsite-filter-dnscrypt-blocked-names.txt
 - https://malware-filter.pages.dev/vn-badsite-filter-dnscrypt-blocked-names.txt
 - https://vn-badsite-filter.pages.dev/vn-badsite-filter-dnscrypt-blocked-names.txt
 
 - https://curbengh.github.io/malware-filter/vn-badsite-filter-dnscrypt-blocked-ips.txt
 - https://curbengh.github.io/vn-badsite-filter/vn-badsite-filter-dnscrypt-blocked-ips.txt
-- https://curben.gitlab.io/vn-badsite-filter/vn-badsite-filter-dnscrypt-blocked-ips.txt
+- https://malware-filter.gitlab.io/vn-badsite-filter/vn-badsite-filter-dnscrypt-blocked-ips.txt
 - https://malware-filter.pages.dev/vn-badsite-filter-dnscrypt-blocked-ips.txt
 - https://vn-badsite-filter.pages.dev/vn-badsite-filter-dnscrypt-blocked-ips.txt
 
@@ -318,14 +320,14 @@ Configure dnscrypt-proxy to use the blocklist:
 
 This blocklist includes domains only. Supported in Internet Explorer 9+.
 
-- https://curben.gitlab.io/malware-filter/vn-badsite-filter.tpl
+- https://malware-filter.gitlab.io/malware-filter/vn-badsite-filter.tpl
 
 <details>
 <summary>Mirrors</summary>
 
 - https://curbengh.github.io/malware-filter/vn-badsite-filter.tpl
 - https://curbengh.github.io/vn-badsite-filter/vn-badsite-filter.tpl
-- https://curben.gitlab.io/vn-badsite-filter/vn-badsite-filter.tpl
+- https://malware-filter.gitlab.io/vn-badsite-filter/vn-badsite-filter.tpl
 - https://malware-filter.pages.dev/vn-badsite-filter.tpl
 - https://vn-badsite-filter.pages.dev/vn-badsite-filter.tpl
 
@@ -339,10 +341,10 @@ This ruleset includes online URLs only. Not compatible with [Snort3](#snort3).
 
 ```
 # Download ruleset
-curl -L "https://curben.gitlab.io/malware-filter/vn-badsite-filter-snort2.rules" -o "/etc/snort/rules/vn-badsite-filter-snort2.rules"
+curl -L "https://malware-filter.gitlab.io/malware-filter/vn-badsite-filter-snort2.rules" -o "/etc/snort/rules/vn-badsite-filter-snort2.rules"
 
 # Create a new cron job for daily update
-printf '#!/bin/sh\ncurl -L "https://curben.gitlab.io/malware-filter/vn-badsite-filter-snort2.rules" -o "/etc/snort/rules/vn-badsite-filter-snort2.rules"\n' > /etc/cron.daily/vn-badsite-filter
+printf '#!/bin/sh\ncurl -L "https://malware-filter.gitlab.io/malware-filter/vn-badsite-filter-snort2.rules" -o "/etc/snort/rules/vn-badsite-filter-snort2.rules"\n' > /etc/cron.daily/vn-badsite-filter
 
 # cron job requires execution permission
 chmod 755 /etc/cron.daily/vn-badsite-filter
@@ -351,14 +353,14 @@ chmod 755 /etc/cron.daily/vn-badsite-filter
 printf "\ninclude \$RULE_PATH/vn-badsite-filter-snort2.rules\n" >> /etc/snort/snort.conf
 ```
 
-- https://curben.gitlab.io/malware-filter/vn-badsite-filter-snort2.rules
+- https://malware-filter.gitlab.io/malware-filter/vn-badsite-filter-snort2.rules
 
 <details>
 <summary>Mirrors</summary>
 
 - https://curbengh.github.io/malware-filter/vn-badsite-filter-snort2.rules
 - https://curbengh.github.io/vn-badsite-filter/vn-badsite-filter-snort2.rules
-- https://curben.gitlab.io/vn-badsite-filter/vn-badsite-filter-snort2.rules
+- https://malware-filter.gitlab.io/vn-badsite-filter/vn-badsite-filter-snort2.rules
 - https://malware-filter.pages.dev/vn-badsite-filter-snort2.rules
 - https://vn-badsite-filter.pages.dev/vn-badsite-filter-snort2.rules
 
@@ -372,10 +374,10 @@ This ruleset includes online URLs only. Not compatible with [Snort2](#snort2).
 
 ```
 # Download ruleset
-curl -L "https://curben.gitlab.io/malware-filter/vn-badsite-filter-snort3.rules" -o "/etc/snort/rules/vn-badsite-filter-snort3.rules"
+curl -L "https://malware-filter.gitlab.io/malware-filter/vn-badsite-filter-snort3.rules" -o "/etc/snort/rules/vn-badsite-filter-snort3.rules"
 
 # Create a new cron job for daily update
-printf '#!/bin/sh\ncurl -L "https://curben.gitlab.io/malware-filter/vn-badsite-filter-snort3.rules" -o "/etc/snort/rules/vn-badsite-filter-snort3.rules"\n' > /etc/cron.daily/vn-badsite-filter
+printf '#!/bin/sh\ncurl -L "https://malware-filter.gitlab.io/malware-filter/vn-badsite-filter-snort3.rules" -o "/etc/snort/rules/vn-badsite-filter-snort3.rules"\n' > /etc/cron.daily/vn-badsite-filter
 
 # cron job requires execution permission
 chmod 755 /etc/cron.daily/vn-badsite-filter
@@ -392,14 +394,14 @@ ips =
 }
 ```
 
-- https://curben.gitlab.io/malware-filter/vn-badsite-filter-snort3.rules
+- https://malware-filter.gitlab.io/malware-filter/vn-badsite-filter-snort3.rules
 
 <details>
 <summary>Mirrors</summary>
 
 - https://curbengh.github.io/malware-filter/vn-badsite-filter-snort3.rules
 - https://curbengh.github.io/vn-badsite-filter/vn-badsite-filter-snort3.rules
-- https://curben.gitlab.io/vn-badsite-filter/vn-badsite-filter-snort3.rules
+- https://malware-filter.gitlab.io/vn-badsite-filter/vn-badsite-filter-snort3.rules
 - https://malware-filter.pages.dev/vn-badsite-filter-snort3.rules
 - https://vn-badsite-filter.pages.dev/vn-badsite-filter-snort3.rules
 
@@ -413,10 +415,10 @@ This ruleset includes online URLs only.
 
 ```
 # Download ruleset
-curl -L "https://curben.gitlab.io/malware-filter/vn-badsite-filter-suricata.rules" -o "/etc/suricata/rules/vn-badsite-filter-suricata.rules"
+curl -L "https://malware-filter.gitlab.io/malware-filter/vn-badsite-filter-suricata.rules" -o "/etc/suricata/rules/vn-badsite-filter-suricata.rules"
 
 # Create a new cron job for daily update
-printf '#!/bin/sh\ncurl -L "https://curben.gitlab.io/malware-filter/vn-badsite-filter-suricata.rules" -o "/etc/suricata/rules/vn-badsite-filter-suricata.rules"\n' > /etc/cron.daily/vn-badsite-filter
+printf '#!/bin/sh\ncurl -L "https://malware-filter.gitlab.io/malware-filter/vn-badsite-filter-suricata.rules" -o "/etc/suricata/rules/vn-badsite-filter-suricata.rules"\n' > /etc/cron.daily/vn-badsite-filter
 
 # cron job requires execution permission
 chmod 755 /etc/cron.daily/vn-badsite-filter
@@ -431,14 +433,14 @@ rule-files:
 +  - vn-badsite-filter-suricata.rules
 ```
 
-- https://curben.gitlab.io/malware-filter/vn-badsite-filter-suricata.rules
+- https://malware-filter.gitlab.io/malware-filter/vn-badsite-filter-suricata.rules
 
 <details>
 <summary>Mirrors</summary>
 
 - https://curbengh.github.io/malware-filter/vn-badsite-filter-suricata.rules
 - https://curbengh.github.io/vn-badsite-filter/vn-badsite-filter-suricata.rules
-- https://curben.gitlab.io/vn-badsite-filter/vn-badsite-filter-suricata.rules
+- https://malware-filter.gitlab.io/vn-badsite-filter/vn-badsite-filter-suricata.rules
 - https://malware-filter.pages.dev/vn-badsite-filter-suricata.rules
 - https://vn-badsite-filter.pages.dev/vn-badsite-filter-suricata.rules
 
@@ -446,7 +448,7 @@ rule-files:
 
 ## FAQ and Guides
 
-See [wiki](https://gitlab.com/curben/malware-filter/-/wikis/home)
+See [wiki](https://gitlab.com/malware-filter/malware-filter/-/wikis/home)
 
 ## License
 

@@ -41,10 +41,11 @@ CURRENT_TIME="$(date -R -u)"
 FIRST_LINE="! Title: VN Malicious Domains Blocklist\n! Description: Block malicious domains targeting Vietnamese users"
 SECOND_LINE="! Updated: $CURRENT_TIME"
 THIRD_LINE="! Expires: 1 day (update frequency)"
-FOURTH_LINE="! Homepage: https://gitlab.com/curben/vn-badsite-filter"
-FIFTH_LINE="! License: https://gitlab.com/curben/vn-badsite-filter#license"
+FOURTH_LINE="! Homepage: https://gitlab.com/malware-filter/vn-badsite-filter"
+FIFTH_LINE="! License: https://gitlab.com/malware-filter/vn-badsite-filter#license"
 SIXTH_LINE="! Source: https://api.chongluadao.vn/v2/blacklistdomains & https://api.chongluadao.vn/v2/blacklistlinks"
-COMMENT_UBO="$FIRST_LINE\n$SECOND_LINE\n$THIRD_LINE\n$FOURTH_LINE\n$FIFTH_LINE\n$SIXTH_LINE"
+ANNOUNCEMENT="\n! Announcement (2022/05/21): curben.gitlab.io has been migrated to malware-filter.gitlab.io"
+COMMENT_UBO="$FIRST_LINE\n$SECOND_LINE\n$THIRD_LINE\n$FOURTH_LINE\n$FIFTH_LINE\n$SIXTH_LINE\n$ANNOUNCEMENT"
 
 mkdir -p "../public/"
 
@@ -111,7 +112,7 @@ sed "1s/Blocklist/BIND Blocklist/" > "../public/vn-badsite-filter-bind.conf"
 
 ## DNS Response Policy Zone (RPZ)
 CURRENT_UNIX_TIME="$(date +%s)"
-RPZ_SYNTAX="\n\$TTL 30\n@ IN SOA rpz.curben.gitlab.io. hostmaster.rpz.curben.gitlab.io. $CURRENT_UNIX_TIME 86400 3600 604800 30\n NS localhost.\n"
+RPZ_SYNTAX="\n\$TTL 30\n@ IN SOA rpz.malware-filter.gitlab.io. hostmaster.rpz.malware-filter.gitlab.io. $CURRENT_UNIX_TIME 86400 3600 604800 30\n NS localhost.\n"
 
 cat "domains.txt" | \
 sed "s/$/ CNAME ./g" | \
