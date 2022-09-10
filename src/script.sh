@@ -44,8 +44,7 @@ THIRD_LINE="! Expires: 1 day (update frequency)"
 FOURTH_LINE="! Homepage: https://gitlab.com/malware-filter/vn-badsite-filter"
 FIFTH_LINE="! License: https://gitlab.com/malware-filter/vn-badsite-filter#license"
 SIXTH_LINE="! Source: https://api.chongluadao.vn/v2/blacklistdomains & https://api.chongluadao.vn/v2/blacklistlinks"
-ANNOUNCEMENT="\n! Announcement (2022/05/21): curben.gitlab.io has been migrated to malware-filter.gitlab.io"
-COMMENT_UBO="$FIRST_LINE\n$SECOND_LINE\n$THIRD_LINE\n$FOURTH_LINE\n$FIFTH_LINE\n$SIXTH_LINE\n$ANNOUNCEMENT"
+COMMENT_UBO="$FIRST_LINE\n$SECOND_LINE\n$THIRD_LINE\n$FOURTH_LINE\n$FIFTH_LINE\n$SIXTH_LINE"
 
 mkdir -p "../public/"
 
