@@ -1,6 +1,25 @@
 # VN Malicious Domains Blocklist
 
-> Announcement (2022/05/21): curben.gitlab.io has been migrated to malware-filter.gitlab.io
+- Formats
+  * [URL-based](#url-based)
+  * [Domain-based](#domain-based)
+  * [Hosts-based](#hosts-based)
+  * [Domain-based (AdGuard Home)](#domain-based-adguard-home)
+  * [URL-based (AdGuard)](#url-based-adguard)
+  * [URL-based (Vivaldi)](#url-based-vivaldi)
+  * [Dnsmasq](#dnsmasq)
+  * [BIND zone](#bind)
+  * [RPZ](#response-policy-zone)
+  * [Unbound](#unbound)
+  * [dnscrypt-proxy](#dnscrypt-proxy)
+  * [Tracking Protection List (IE)](#tracking-protection-list-ie)
+  * [Snort2](#snort2)
+  * [Snort3](#snort3)
+  * [Suricata](#suricata)
+- [Compressed version](#compressed-version)
+- [FAQ and Guides](#faq-and-guides)
+- [CI Variables](#ci-variables)
+- [License](#license)
 
 A blocklist of malicious (malware, scam, phishing) websites that are targeting Vietnamese users. Sourced from [api.chongluadao.vn](https://chongluadao.vn).
 
@@ -446,9 +465,23 @@ rule-files:
 
 </details>
 
+## Compressed version
+
+All filters are also available as gzip- and brotli-compressed.
+
+- Gzip: https://malware-filter.gitlab.io/malware-filter/vn-badsite-filter.txt.gz
+- Brotli: https://malware-filter.gitlab.io/malware-filter/vn-badsite-filter.txt.br
+
 ## FAQ and Guides
 
 See [wiki](https://gitlab.com/malware-filter/malware-filter/-/wikis/home)
+
+## CI Variables
+
+Optional variables:
+
+- `CLOUDFLARE_BUILD_HOOK`: Deploy to Cloudflare Pages.
+- `NETLIFY_SITE_ID`: Deploy to Netlify.
 
 ## License
 
