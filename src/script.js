@@ -19,7 +19,7 @@ const f = async () => {
   const domains = new Set()
 
   for (const { url } of domainsArray) {
-    const parsedUrl = new URL(url.replace(/\*\./g, ''))
+    const parsedUrl = new URL(url.replace(/\*\./g, '').replace(/^\[/, ''))
     const domain = parsedUrl.hostname.replace(/\\/g, '').replace(/^www\./, '')
     domains.add(domain)
   }
