@@ -19,12 +19,22 @@ const f = async () => {
   const domains = new Set()
 
   for (const { url } of domainsArray) {
-    const parsedUrl = new URL(url.replace(/\*\./g, '').replace(/^\[/, ''))
+    let parsedUrl = new URL('http://example.com')
+    try {
+      parsedUrl = new URL(url.replace(/\*\./g, ''))
+    } catch {
+      continue
+    }
     const domain = parsedUrl.hostname.replace(/\\/g, '').replace(/^www\./, '')
     domains.add(domain)
   }
   for (const { url } of linksArray) {
-    const parsedUrl = new URL(url)
+    let parsedUrl = new URL('http://example.com')
+    try {
+      parsedUrl = new URL(url)
+    } catch {
+      continue
+    }
     const domain = parsedUrl.hostname.replace(/\\/g, '').replace(/^www\./, '')
     domains.add(domain)
   }
