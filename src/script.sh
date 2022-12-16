@@ -37,7 +37,7 @@ grep -F -vf "../src/exclude.txt" | \
 sort -u > "domains.txt"
 
 ## Merge malware domains and URLs
-CURRENT_TIME="$(date -R -u)"
+CURRENT_TIME=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
 FIRST_LINE="! Title: VN Malicious Domains Blocklist\n! Description: Block malicious domains targeting Vietnamese users"
 SECOND_LINE="! Updated: $CURRENT_TIME"
 THIRD_LINE="! Expires: 1 day (update frequency)"
