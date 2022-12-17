@@ -358,21 +358,11 @@ This blocklist includes domains only. Supported in Internet Explorer 9+.
 
 Not compatible with [Snort3](#snort3).
 
-### Install
+Save the ruleset to "/etc/snort/rules/vn-badsite-filter-snort2.rules". Refer to this [guide](https://gitlab.com/malware-filter/malware-filter/wikis/update-filter) for auto-update.
 
-```
-# Download ruleset
-curl -L "https://malware-filter.gitlab.io/malware-filter/vn-badsite-filter-snort2.rules" -o "/etc/snort/rules/vn-badsite-filter-snort2.rules"
+Configure Snort to use the ruleset:
 
-# Create a new cron job for daily update
-printf '#!/bin/sh\ncurl -L "https://malware-filter.gitlab.io/malware-filter/vn-badsite-filter-snort2.rules" -o "/etc/snort/rules/vn-badsite-filter-snort2.rules"\n' > /etc/cron.daily/vn-badsite-filter
-
-# cron job requires execution permission
-chmod 755 /etc/cron.daily/vn-badsite-filter
-
-# Configure Snort to use the ruleset
-printf "\ninclude \$RULE_PATH/vn-badsite-filter-snort2.rules\n" >> /etc/snort/snort.conf
-```
+`printf "\ninclude \$RULE_PATH/urlhaus-filter-snort2-online.rules\n" >> /etc/snort/snort.conf`
 
 - https://malware-filter.gitlab.io/malware-filter/vn-badsite-filter-snort2.rules
 
@@ -391,18 +381,7 @@ printf "\ninclude \$RULE_PATH/vn-badsite-filter-snort2.rules\n" >> /etc/snort/sn
 
 Not compatible with [Snort2](#snort2).
 
-### Install
-
-```
-# Download ruleset
-curl -L "https://malware-filter.gitlab.io/malware-filter/vn-badsite-filter-snort3.rules" -o "/etc/snort/rules/vn-badsite-filter-snort3.rules"
-
-# Create a new cron job for daily update
-printf '#!/bin/sh\ncurl -L "https://malware-filter.gitlab.io/malware-filter/vn-badsite-filter-snort3.rules" -o "/etc/snort/rules/vn-badsite-filter-snort3.rules"\n' > /etc/cron.daily/vn-badsite-filter
-
-# cron job requires execution permission
-chmod 755 /etc/cron.daily/vn-badsite-filter
-```
+Save the ruleset to "/etc/snort/rules/vn-badsite-filter-snort3.rules". Refer to this [guide](https://gitlab.com/malware-filter/malware-filter/wikis/update-filter) for auto-update.
 
 Configure Snort to use the ruleset:
 
@@ -430,18 +409,7 @@ ips =
 
 ## Suricata
 
-### Install
-
-```
-# Download ruleset
-curl -L "https://malware-filter.gitlab.io/malware-filter/vn-badsite-filter-suricata.rules" -o "/etc/suricata/rules/vn-badsite-filter-suricata.rules"
-
-# Create a new cron job for daily update
-printf '#!/bin/sh\ncurl -L "https://malware-filter.gitlab.io/malware-filter/vn-badsite-filter-suricata.rules" -o "/etc/suricata/rules/vn-badsite-filter-suricata.rules"\n' > /etc/cron.daily/vn-badsite-filter
-
-# cron job requires execution permission
-chmod 755 /etc/cron.daily/vn-badsite-filter
-```
+Save the ruleset to "/etc/suricata/rules/vn-badsite-filter-suricata.rules". Refer to this [guide](https://gitlab.com/malware-filter/malware-filter/wikis/update-filter) for auto-update.
 
 Configure Suricata to use the ruleset:
 
@@ -467,7 +435,9 @@ rule-files:
 
 ## Splunk
 
-A CSV file for Splunk [lookup](https://docs.splunk.com/Documentation/Splunk/9.0.2/Knowledge/Aboutlookupsandfieldactions).
+A CSV file for Splunk [lookup](https://docs.splunk.com/Documentation/Splunk/9.0.2/Knowledge/Aboutlookupsandfieldactions). This ruleset includes online URLs only.
+
+Either upload the file via GUI or save the file in `$SPLUNK_HOME/Splunk/etc/system/lookups` or app-specific `$SPLUNK_HOME/etc/YourApp/apps/search/lookups`. Refer to this [guide](https://gitlab.com/malware-filter/malware-filter/wikis/update-filter) or [Getwatchlist](https://splunkbase.splunk.com/app/635) app for auto-update.
 
 - https://malware-filter.gitlab.io/malware-filter/vn-badsite-filter-splunk.csv
 
