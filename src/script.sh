@@ -157,19 +157,23 @@ set +x
 ## Snort & Suricata rulesets
 rm -f "../public/vn-badsite-filter-snort2.rules" \
   "../public/vn-badsite-filter-snort3.rules" \
-  "../public/vn-badsite-filter-suricata.rules"
+  "../public/vn-badsite-filter-suricata.rules" \
+  "../public/vn-badsite-filter-splunk.csv"
 
 SID="500000001"
 while read DOMAIN; do
-  SN_RULE="alert tcp \$HOME_NET any -> \$EXTERNAL_NET [80,443] (msg:\"vn-badsite-filter vn-badsite website detected\"; flow:established,from_client; content:\"GET\"; http_method; content:\"$DOMAIN\"; content:\"Host\"; http_header; classtype:attempted-recon; sid:$SID; rev:1;)"
+  SN_RULE="alert tcp \$HOME_NET any -> \$EXTERNAL_NET [80,443] (msg:\"vn-badsite-filter malicious website detected\"; flow:established,from_client; content:\"GET\"; http_method; content:\"$DOMAIN\"; content:\"Host\"; http_header; classtype:attempted-recon; sid:$SID; rev:1;)"
 
-  SN3_RULE="alert http \$HOME_NET any -> \$EXTERNAL_NET any (msg:\"vn-badsite-filter vn-badsite website detected\"; http_header:field host; content:\"$DOMAIN\",nocase; classtype:attempted-recon; sid:$SID; rev:1;)"
+  SN3_RULE="alert http \$HOME_NET any -> \$EXTERNAL_NET any (msg:\"vn-badsite-filter malicious website detected\"; http_header:field host; content:\"$DOMAIN\",nocase; classtype:attempted-recon; sid:$SID; rev:1;)"
 
-  SR_RULE="alert http \$HOME_NET any -> \$EXTERNAL_NET any (msg:\"vn-badsite-filter vn-badsite website detected\"; flow:established,from_client; http.method; content:\"GET\"; http.host; content:\"$DOMAIN\"; classtype:attempted-recon; sid:$SID; rev:1;)"
+  SR_RULE="alert http \$HOME_NET any -> \$EXTERNAL_NET any (msg:\"vn-badsite-filter malicious website detected\"; flow:established,from_client; http.method; content:\"GET\"; http.host; content:\"$DOMAIN\"; classtype:attempted-recon; sid:$SID; rev:1;)"
+
+  SP_RULE="\"$DOMAIN\",\"\",\"vn-badsite-filter malicious website detected\",\"$CURRENT_TIME\""
 
   echo "$SN_RULE" >> "../public/vn-badsite-filter-snort2.rules"
   echo "$SN3_RULE" >> "../public/vn-badsite-filter-snort3.rules"
   echo "$SR_RULE" >> "../public/vn-badsite-filter-suricata.rules"
+  echo "$SP_RULE" >> "../public/vn-badsite-filter-splunk.csv"
 
   SID=$(( $SID + 1 ))
 done < "domains.txt"
@@ -185,6 +189,9 @@ sed -i "1s/Blocklist/Snort3 Ruleset/" "../public/vn-badsite-filter-snort3.rules"
 
 sed -i "1i $COMMENT" "../public/vn-badsite-filter-suricata.rules"
 sed -i "1s/Blocklist/Suricata Ruleset/" "../public/vn-badsite-filter-suricata.rules"
+
+sed -i -e "1i $COMMENT" -e '1i "host","path","message","updated"' "../public/vn-badsite-filter-splunk.csv"
+sed -i "1s/Blocklist/Splunk Lookup/" "../public/vn-badsite-filter-splunk.csv"
 
 
 cd ../

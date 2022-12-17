@@ -1,21 +1,22 @@
 # VN Malicious Domains Blocklist
 
 - Formats
-  * [URL-based](#url-based)
-  * [Domain-based](#domain-based)
-  * [Hosts-based](#hosts-based)
-  * [Domain-based (AdGuard Home)](#domain-based-adguard-home)
-  * [URL-based (AdGuard)](#url-based-adguard)
-  * [URL-based (Vivaldi)](#url-based-vivaldi)
-  * [Dnsmasq](#dnsmasq)
-  * [BIND zone](#bind)
-  * [RPZ](#response-policy-zone)
-  * [Unbound](#unbound)
-  * [dnscrypt-proxy](#dnscrypt-proxy)
-  * [Tracking Protection List (IE)](#tracking-protection-list-ie)
-  * [Snort2](#snort2)
-  * [Snort3](#snort3)
-  * [Suricata](#suricata)
+  - [URL-based](#url-based)
+  - [Domain-based](#domain-based)
+  - [Hosts-based](#hosts-based)
+  - [Domain-based (AdGuard Home)](#domain-based-adguard-home)
+  - [URL-based (AdGuard)](#url-based-adguard)
+  - [URL-based (Vivaldi)](#url-based-vivaldi)
+  - [Dnsmasq](#dnsmasq)
+  - [BIND zone](#bind)
+  - [RPZ](#response-policy-zone)
+  - [Unbound](#unbound)
+  - [dnscrypt-proxy](#dnscrypt-proxy)
+  - [Tracking Protection List (IE)](#tracking-protection-list-ie)
+  - [Snort2](#snort2)
+  - [Snort3](#snort3)
+  - [Suricata](#suricata)
+  * [Splunk](#splunk)
 - [Compressed version](#compressed-version)
 - [FAQ and Guides](#faq-and-guides)
 - [CI Variables](#ci-variables)
@@ -39,8 +40,9 @@ There are multiple formats available, refer to the appropriate section according
 - [Snort2](#snort2)
 - [Snort3](#snort3)
 - [Suricata](#suricata)
+- [Splunk](#splunk)
 
-Not sure which format to choose? See [Compatibility](https://gitlab.com/malware-filter/malware-filter/wikis/compatibility) page in the wiki.
+For other programs, see [Compatibility](https://gitlab.com/malware-filter/malware-filter/wikis/compatibility) page in the wiki.
 
 Check out my other filters:
 
@@ -307,7 +309,7 @@ chmod 755 /etc/cron.daily/vn-badsite-filter
 
 Configure dnscrypt-proxy to use the blocklist:
 
-``` diff
+```diff
 [blocked_names]
 +  blocked_names_file = '/etc/dnscrypt-proxy/vn-badsite-filter-dnscrypt-blocked-names.txt'
 
@@ -354,7 +356,7 @@ This blocklist includes domains only. Supported in Internet Explorer 9+.
 
 ## Snort2
 
-This ruleset includes online URLs only. Not compatible with [Snort3](#snort3).
+Not compatible with [Snort3](#snort3).
 
 ### Install
 
@@ -387,7 +389,7 @@ printf "\ninclude \$RULE_PATH/vn-badsite-filter-snort2.rules\n" >> /etc/snort/sn
 
 ## Snort3
 
-This ruleset includes online URLs only. Not compatible with [Snort2](#snort2).
+Not compatible with [Snort2](#snort2).
 
 ### Install
 
@@ -404,7 +406,7 @@ chmod 755 /etc/cron.daily/vn-badsite-filter
 
 Configure Snort to use the ruleset:
 
-``` diff
+```diff
 # /etc/snort/snort.lua
 ips =
 {
@@ -428,8 +430,6 @@ ips =
 
 ## Suricata
 
-This ruleset includes online URLs only.
-
 ### Install
 
 ```
@@ -445,7 +445,7 @@ chmod 755 /etc/cron.daily/vn-badsite-filter
 
 Configure Suricata to use the ruleset:
 
-``` diff
+```diff
 # /etc/suricata/suricata.yaml
 rule-files:
   - local.rules
@@ -462,6 +462,23 @@ rule-files:
 - https://malware-filter.gitlab.io/vn-badsite-filter/vn-badsite-filter-suricata.rules
 - https://malware-filter.pages.dev/vn-badsite-filter-suricata.rules
 - https://vn-badsite-filter.pages.dev/vn-badsite-filter-suricata.rules
+
+</details>
+
+## Splunk
+
+A CSV file for Splunk [lookup](https://docs.splunk.com/Documentation/Splunk/9.0.2/Knowledge/Aboutlookupsandfieldactions).
+
+- https://malware-filter.gitlab.io/malware-filter/vn-badsite-filter-splunk.csv
+
+<details>
+<summary>Mirrors</summary>
+
+- https://curbengh.github.io/malware-filter/vn-badsite-filter-splunk.csv
+- https://curbengh.github.io/vn-badsite-filter/vn-badsite-filter-splunk.csv
+- https://malware-filter.gitlab.io/vn-badsite-filter/vn-badsite-filter-splunk.csv
+- https://malware-filter.pages.dev/vn-badsite-filter-splunk.csv
+- https://vn-badsite-filter.pages.dev/vn-badsite-filter-splunk.csv
 
 </details>
 
