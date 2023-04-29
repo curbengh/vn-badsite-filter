@@ -115,7 +115,7 @@ RPZ_SYNTAX="\n\$TTL 30\n@ IN SOA rpz.malware-filter.gitlab.io. hostmaster.rpz.ma
 
 cat "domains.txt" | \
 sed "s/$/ CNAME ./g" | \
-sed "1i $RPZ_SYNTAX" | \
+sed '1 i\'"$RPZ_SYNTAX"'' | \
 sed "1i $COMMENT" | \
 sed "s/^#/;/g" | \
 sed "1s/Blocklist/RPZ Blocklist/" > "../public/vn-badsite-filter-rpz.conf"
