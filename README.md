@@ -435,6 +435,10 @@ Optional variables:
 - `CLOUDFLARE_BUILD_HOOK`: Deploy to Cloudflare Pages.
 - `NETLIFY_SITE_ID`: Deploy to Netlify.
 
+## Repository Mirrors
+
+https://gitlab.com/curben/blog#repository-mirrors
+
 ## License
 
 [Creative Commons Zero v1.0 Universal](LICENSE-CC0.md) and [MIT License](LICENSE)
