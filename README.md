@@ -24,23 +24,23 @@
 
 A blocklist of malicious (malware, scam, phishing) websites that are targeting Vietnamese users. Sourced from [api.chongluadao.vn](https://chongluadao.vn).
 
-There are multiple formats available, refer to the appropriate section according to the program used:
-
-- uBlock Origin (uBO) -> [URL-based](#url-based) section (recommended)
-- Pi-hole -> [Domain-based](#domain-based) or [Hosts-based](#hosts-based) section
-- AdGuard Home -> [Domain-based (AdGuard Home)](#domain-based-adguard-home) or [Hosts-based](#hosts-based) section
-- AdGuard (browser extension) -> [URL-based (AdGuard)](#url-based-adguard)
-- Vivaldi -> [URL-based (Vivaldi)](#url-based-vivaldi)
-- [Hosts](#hosts-based)
-- [Dnsmasq](#dnsmasq)
-- BIND -> BIND [zone](#bind) or [RPZ](#response-policy-zone)
-- [Unbound](#unbound)
-- [dnscrypt-proxy](#dnscrypt-proxy)
-- Internet Explorer -> [Tracking Protection List (IE)](#tracking-protection-list-ie)
-- [Snort2](#snort2)
-- [Snort3](#snort3)
-- [Suricata](#suricata)
-- [Splunk](#splunk)
+| Client                                            | mirror 1                                                                                                                                                                                                         | mirror 2                                                                                                                                                                                             | mirror 3                                                                                                                                                                                                   | mirror 4                                                                                                                                                                                                               | mirror 5                                                                                                                                                                           | mirror 6                                                                                                                                                                                 |
+| ------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [uBlock Origin](#url-based)                       | [link](https://malware-filter.gitlab.io/malware-filter/vn-badsite-filter.txt)                                                                                                                                    | [link](https://curbengh.github.io/malware-filter/vn-badsite-filter.txt)                                                                                                                              | [link](https://curbengh.github.io/vn-badsite-filter/vn-badsite-filter.txt)                                                                                                                                 | [link](https://malware-filter.gitlab.io/vn-badsite-filter/vn-badsite-filter.txt)                                                                                                                                       | [link](https://malware-filter.pages.dev/vn-badsite-filter.txt)                                                                                                                     | [link](https://vn-badsite-filter.pages.dev/vn-badsite-filter.txt)                                                                                                                        |
+| [Pi-hole](#domain-based)                          | [link](https://malware-filter.gitlab.io/malware-filter/vn-badsite-filter-domains.txt)                                                                                                                            | [link](https://curbengh.github.io/malware-filter/vn-badsite-filter-domains.txt)                                                                                                                      | [link](https://curbengh.github.io/vn-badsite-filter/vn-badsite-filter-domains.txt)                                                                                                                         | [link](https://malware-filter.gitlab.io/vn-badsite-filter/vn-badsite-filter-domains.txt)                                                                                                                               | [link](https://malware-filter.pages.dev/vn-badsite-filter-domains.txt)                                                                                                             | [link](https://vn-badsite-filter.pages.dev/vn-badsite-filter-domains.txt)                                                                                                                |
+| [AdGuard Home](#domain-based-adguard-home)        | [link](https://malware-filter.gitlab.io/malware-filter/vn-badsite-filter-agh.txt)                                                                                                                                | [link](https://curbengh.github.io/malware-filter/vn-badsite-filter-agh.txt)                                                                                                                          | [link](https://curbengh.github.io/vn-badsite-filter/vn-badsite-filter-agh.txt)                                                                                                                             | [link](https://malware-filter.gitlab.io/vn-badsite-filter/vn-badsite-filter-agh.txt)                                                                                                                                   | [link](https://malware-filter.pages.dev/vn-badsite-filter-agh.txt)                                                                                                                 | [link](https://vn-badsite-filter.pages.dev/vn-badsite-filter-agh.txt)                                                                                                                    |
+| [AdGuard (browser extension)](#ip-based-adguard)  | [link](https://malware-filter.gitlab.io/malware-filter/vn-badsite-filter-ag.txt)                                                                                                                                 | [link](https://curbengh.github.io/malware-filter/vn-badsite-filter-ag.txt)                                                                                                                           | [link](https://curbengh.github.io/vn-badsite-filter/vn-badsite-filter-ag.txt)                                                                                                                              | [link](https://malware-filter.gitlab.io/vn-badsite-filter/vn-badsite-filter-ag.txt)                                                                                                                                    | [link](https://malware-filter.pages.dev/vn-badsite-filter-ag.txt)                                                                                                                  | [link](https://vn-badsite-filter.pages.dev/vn-badsite-filter-ag.txt)                                                                                                                     |
+| [Vivaldi](#ip-based-vivaldi)                      | [link](https://malware-filter.gitlab.io/malware-filter/vn-badsite-filter-vivaldi.txt)                                                                                                                            | [link](https://curbengh.github.io/malware-filter/vn-badsite-filter-vivaldi.txt)                                                                                                                      | [link](https://curbengh.github.io/vn-badsite-filter/vn-badsite-filter-vivaldi.txt)                                                                                                                         | [link](https://malware-filter.gitlab.io/vn-badsite-filter/vn-badsite-filter-vivaldi.txt)                                                                                                                               | [link](https://malware-filter.pages.dev/vn-badsite-filter-vivaldi.txt)                                                                                                             | [link](https://vn-badsite-filter.pages.dev/vn-badsite-filter-vivaldi.txt)                                                                                                                |
+| [Hosts](#hosts-based)                             | [link](https://malware-filter.gitlab.io/malware-filter/vn-badsite-filter-hosts.txt)                                                                                                                              | [link](https://curbengh.github.io/malware-filter/vn-badsite-filter-hosts.txt)                                                                                                                        | [link](https://curbengh.github.io/vn-badsite-filter/vn-badsite-filter-hosts.txt)                                                                                                                           | [link](https://malware-filter.gitlab.io/vn-badsite-filter/vn-badsite-filter-hosts.txt)                                                                                                                                 | [link](https://malware-filter.pages.dev/vn-badsite-filter-hosts.txt)                                                                                                               | [link](https://vn-badsite-filter.pages.dev/vn-badsite-filter-hosts.txt)                                                                                                                  |
+| [Dnsmasq](#dnsmasq)                               | [link](https://malware-filter.gitlab.io/malware-filter/vn-badsite-filter-dnsmasq.conf)                                                                                                                           | [link](https://curbengh.github.io/malware-filter/vn-badsite-filter-dnsmasq.conf)                                                                                                                     | [link](https://curbengh.github.io/vn-badsite-filter/vn-badsite-filter-dnsmasq.conf)                                                                                                                        | [link](https://malware-filter.gitlab.io/vn-badsite-filter/vn-badsite-filter-dnsmasq.conf)                                                                                                                              | [link](https://malware-filter.pages.dev/vn-badsite-filter-dnsmasq.conf)                                                                                                            | [link](https://vn-badsite-filter.pages.dev/vn-badsite-filter-dnsmasq.conf)                                                                                                               |
+| BIND [zone](#bind)                                | [link](https://malware-filter.gitlab.io/malware-filter/vn-badsite-filter-bind.conf)                                                                                                                              | [link](https://curbengh.github.io/malware-filter/vn-badsite-filter-bind.conf)                                                                                                                        | [link](https://curbengh.github.io/vn-badsite-filter/vn-badsite-filter-bind.conf)                                                                                                                           | [link](https://malware-filter.gitlab.io/vn-badsite-filter/vn-badsite-filter-bind.conf)                                                                                                                                 | [link](https://malware-filter.pages.dev/vn-badsite-filter-bind.conf)                                                                                                               | [link](https://vn-badsite-filter.pages.dev/vn-badsite-filter-bind.conf)                                                                                                                  |
+| BIND [RPZ](#response-policy-zone)                 | [link](https://malware-filter.gitlab.io/malware-filter/vn-badsite-filter-rpz.conf)                                                                                                                               | [link](https://curbengh.github.io/malware-filter/vn-badsite-filter-rpz.conf)                                                                                                                         | [link](https://curbengh.github.io/vn-badsite-filter/vn-badsite-filter-rpz.conf)                                                                                                                            | [link](https://malware-filter.gitlab.io/vn-badsite-filter/vn-badsite-filter-rpz.conf)                                                                                                                                  | [link](https://malware-filter.pages.dev/vn-badsite-filter-rpz.conf)                                                                                                                | [link](https://vn-badsite-filter.pages.dev/vn-badsite-filter-rpz.conf)                                                                                                                   |
+| [dnscrypt-proxy](#dnscrypt-proxy)                 | [names.txt](https://malware-filter.gitlab.io/malware-filter/vn-badsite-filter-dnscrypt-blocked-names.txt), [ips.txt](https://malware-filter.gitlab.io/malware-filter/vn-badsite-filter-dnscrypt-blocked-ips.txt) | [names.txt](https://curbengh.github.io/malware-filter/vn-badsite-filter-dnscrypt-blocked-names.txt), [ips.txt](https://curbengh.github.io/malware-filter/vn-badsite-filter-dnscrypt-blocked-ips.txt) | [names.txt](https://curbengh.github.io/vn-badsite-filter/vn-badsite-filter-dnscrypt-blocked-names.txt), [ips.txt](https://curbengh.github.io/vn-badsite-filter/vn-badsite-filter-dnscrypt-blocked-ips.txt) | [names.txt](https://malware-filter.gitlab.io/vn-badsite-filter/vn-badsite-filter-dnscrypt-blocked-names.txt), [ips.txt](https://malware-filter.gitlab.io/vn-badsite-filter/vn-badsite-filter-dnscrypt-blocked-ips.txt) | [names.txt](https://malware-filter.pages.dev/vn-badsite-filter-dnscrypt-blocked-names.txt), [ips.txt](https://malware-filter.pages.dev/vn-badsite-filter-dnscrypt-blocked-ips.txt) | [names.txt](https://vn-badsite-filter.pages.dev/vn-badsite-filter-dnscrypt-blocked-names.txt), [ips.txt](https://vn-badsite-filter.pages.dev/vn-badsite-filter-dnscrypt-blocked-ips.txt) |
+| [Internet Explorer](#tracking-protection-list-ie) | [link](https://malware-filter.gitlab.io/malware-filter/vn-badsite-filter.tpl)                                                                                                                                    | [link](https://curbengh.github.io/malware-filter/vn-badsite-filter.tpl)                                                                                                                              | [link](https://curbengh.github.io/vn-badsite-filter/vn-badsite-filter.tpl)                                                                                                                                 | [link](https://malware-filter.gitlab.io/vn-badsite-filter/vn-badsite-filter.tpl)                                                                                                                                       | [link](https://malware-filter.pages.dev/vn-badsite-filter.tpl)                                                                                                                     | [link](https://vn-badsite-filter.pages.dev/vn-badsite-filter.tpl)                                                                                                                        |
+| [Snort2](#snort2)                                 | [link](https://malware-filter.gitlab.io/malware-filter/vn-badsite-filter-snort2.rules)                                                                                                                           | [link](https://curbengh.github.io/malware-filter/vn-badsite-filter-snort2.rules)                                                                                                                     | [link](https://curbengh.github.io/vn-badsite-filter/vn-badsite-filter-snort2.rules)                                                                                                                        | [link](https://malware-filter.gitlab.io/vn-badsite-filter/vn-badsite-filter-snort2.rules)                                                                                                                              | [link](https://malware-filter.pages.dev/vn-badsite-filter-snort2.rules)                                                                                                            | [link](https://vn-badsite-filter.pages.dev/vn-badsite-filter-snort2.rules)                                                                                                               |
+| [Snort3](#snort3)                                 | [link](https://malware-filter.gitlab.io/malware-filter/vn-badsite-filter-snort3.rules)                                                                                                                           | [link](https://curbengh.github.io/malware-filter/vn-badsite-filter-snort3.rules)                                                                                                                     | [link](https://curbengh.github.io/vn-badsite-filter/vn-badsite-filter-snort3.rules)                                                                                                                        | [link](https://malware-filter.gitlab.io/vn-badsite-filter/vn-badsite-filter-snort3.rules)                                                                                                                              | [link](https://malware-filter.pages.dev/vn-badsite-filter-snort3.rules)                                                                                                            | [link](https://vn-badsite-filter.pages.dev/vn-badsite-filter-snort3.rules)                                                                                                               |
+| [Suricata](#suricata)                             | [link](https://malware-filter.gitlab.io/malware-filter/vn-badsite-filter-suricata.rules)                                                                                                                         | [link](https://curbengh.github.io/malware-filter/vn-badsite-filter-suricata.rules)                                                                                                                   | [link](https://curbengh.github.io/vn-badsite-filter/vn-badsite-filter-suricata.rules)                                                                                                                      | [link](https://malware-filter.gitlab.io/vn-badsite-filter/vn-badsite-filter-suricata.rules)                                                                                                                            | [link](https://malware-filter.pages.dev/vn-badsite-filter-suricata.rules)                                                                                                          | [link](https://vn-badsite-filter.pages.dev/vn-badsite-filter-suricata.rules)                                                                                                             |
+| [Splunk](#splunk)                                 | [link](https://malware-filter.gitlab.io/malware-filter/vn-badsite-filter-splunk.csv)                                                                                                                             | [link](https://curbengh.github.io/malware-filter/vn-badsite-filter-splunk.csv)                                                                                                                       | [link](https://curbengh.github.io/vn-badsite-filter/vn-badsite-filter-splunk.csv)                                                                                                                          | [link](https://malware-filter.gitlab.io/vn-badsite-filter/vn-badsite-filter-splunk.csv)                                                                                                                                | [link](https://malware-filter.pages.dev/vn-badsite-filter-splunk.csv)                                                                                                              | [link](https://vn-badsite-filter.pages.dev/vn-badsite-filter-splunk.csv)                                                                                                                 |
 
 For other programs, see [Compatibility](https://gitlab.com/malware-filter/malware-filter/wikis/compatibility) page in the wiki.
 
@@ -53,109 +53,31 @@ Check out my other filters:
 
 ## URL-based
 
-Import the following URL into uBO to subscribe:
-
-- https://malware-filter.gitlab.io/malware-filter/vn-badsite-filter.txt
-
-<details>
-<summary>Mirrors</summary>
-
-- https://curbengh.github.io/malware-filter/vn-badsite-filter.txt
-- https://curbengh.github.io/vn-badsite-filter/vn-badsite-filter.txt
-- https://malware-filter.gitlab.io/vn-badsite-filter/vn-badsite-filter.txt
-- https://malware-filter.pages.dev/vn-badsite-filter.txt
-- https://vn-badsite-filter.pages.dev/vn-badsite-filter.txt
-
-</details>
+Import the URL into uBO to subscribe.
 
 **AdGuard Home** users should use [this blocklist](#domain-based-adguard-home).
 
 ## URL-based (AdGuard)
 
-Import the following URL into AdGuard browser extensions to subscribe (includes online and **offline** malicious websites):
-
-- https://malware-filter.gitlab.io/malware-filter/vn-badsite-filter-ag.txt
-
-<details>
-<summary>Mirrors</summary>
-
-- https://curbengh.github.io/malware-filter/vn-badsite-filter-ag.txt
-- https://curbengh.github.io/vn-badsite-filter/vn-badsite-filter-ag.txt
-- https://malware-filter.gitlab.io/vn-badsite-filter/vn-badsite-filter-ag.txt
-- https://malware-filter.pages.dev/vn-badsite-filter-ag.txt
-- https://vn-badsite-filter.pages.dev/vn-badsite-filter-ag.txt
-
-</details>
+Import the following URL into AdGuard browser extensions to subscribe.
 
 ## URL-based (Vivaldi)
 
 _Requires Vivaldi Desktop/Android 3.3+, blocking level must be at least "Block Trackers"_
 
-Import the following URL into Vivaldi's **Tracker Blocking Sources** to subscribe (includes online and **offline** malicious websites):
-
-- https://malware-filter.gitlab.io/malware-filter/vn-badsite-filter-vivaldi.txt
-
-<details>
-<summary>Mirrors</summary>
-
-- https://curbengh.github.io/malware-filter/vn-badsite-filter-vivaldi.txt
-- https://curbengh.github.io/vn-badsite-filter/vn-badsite-filter-vivaldi.txt
-- https://malware-filter.gitlab.io/vn-badsite-filter/vn-badsite-filter-vivaldi.txt
-- https://malware-filter.pages.dev/vn-badsite-filter-vivaldi.txt
-- https://vn-badsite-filter.pages.dev/vn-badsite-filter-vivaldi.txt
-
-</details>
+Import the URL into Vivaldi's **Tracker Blocking Sources** to subscribe.
 
 ## Domain-based
 
 This blocklist includes domains and IP addresses.
 
-- https://malware-filter.gitlab.io/malware-filter/vn-badsite-filter-domains.txt
-
-<details>
-<summary>Mirrors</summary>
-
-- https://curbengh.github.io/malware-filter/vn-badsite-filter-domains.txt
-- https://curbengh.github.io/vn-badsite-filter/vn-badsite-filter-domains.txt
-- https://malware-filter.gitlab.io/vn-badsite-filter/vn-badsite-filter-domains.txt
-- https://malware-filter.pages.dev/vn-badsite-filter-domains.txt
-- https://vn-badsite-filter.pages.dev/vn-badsite-filter-domains.txt
-
-</details>
-
 ## Domain-based (AdGuard Home)
 
 This AdGuard Home-compatible blocklist includes domains and IP addresses.
 
-- https://malware-filter.gitlab.io/malware-filter/vn-badsite-filter-agh.txt
-
-<details>
-<summary>Mirrors</summary>
-
-- https://curbengh.github.io/malware-filter/vn-badsite-filter-agh.txt
-- https://curbengh.github.io/vn-badsite-filter/vn-badsite-filter-agh.txt
-- https://malware-filter.gitlab.io/vn-badsite-filter/vn-badsite-filter-agh.txt
-- https://malware-filter.pages.dev/vn-badsite-filter-agh.txt
-- https://vn-badsite-filter.pages.dev/vn-badsite-filter-agh.txt
-
-</details>
-
 ## Hosts-based
 
 This blocklist includes domains only.
-
-- https://malware-filter.gitlab.io/malware-filter/vn-badsite-filter-hosts.txt
-
-<details>
-<summary>Mirrors</summary>
-
-- https://curbengh.github.io/malware-filter/vn-badsite-filter-hosts.txt
-- https://curbengh.github.io/vn-badsite-filter/vn-badsite-filter-hosts.txt
-- https://malware-filter.gitlab.io/vn-badsite-filter/vn-badsite-filter-hosts.txt
-- https://malware-filter.pages.dev/vn-badsite-filter-hosts.txt
-- https://vn-badsite-filter.pages.dev/vn-badsite-filter-hosts.txt
-
-</details>
 
 ## Dnsmasq
 
@@ -166,19 +88,6 @@ Save the ruleset to "/usr/local/etc/dnsmasq/vn-badsite-filter-dnsmasq.conf". Ref
 Configure dnsmasq to use the blocklist:
 
 `printf "\nconf-file=/usr/local/etc/dnsmasq/vn-badsite-filter-dnsmasq.conf\n" >> /etc/dnsmasq.conf`
-
-- https://malware-filter.gitlab.io/malware-filter/vn-badsite-filter-dnsmasq.conf
-
-<details>
-<summary>Mirrors</summary>
-
-- https://curbengh.github.io/malware-filter/vn-badsite-filter-dnsmasq.conf
-- https://curbengh.github.io/vn-badsite-filter/vn-badsite-filter-dnsmasq.conf
-- https://malware-filter.gitlab.io/vn-badsite-filter/vn-badsite-filter-dnsmasq.conf
-- https://malware-filter.pages.dev/vn-badsite-filter-dnsmasq.conf
-- https://vn-badsite-filter.pages.dev/vn-badsite-filter-dnsmasq.conf
-
-</details>
 
 ## BIND
 
@@ -208,35 +117,9 @@ $TTL    86400   ; one day
 
 Zone file is derived from [here](https://github.com/tomzuu/blacklist-named/blob/master/null.zone.file).
 
-- https://malware-filter.gitlab.io/malware-filter/vn-badsite-filter-bind.conf
-
-<details>
-<summary>Mirrors</summary>
-
-- https://curbengh.github.io/malware-filter/vn-badsite-filter-bind.conf
-- https://curbengh.github.io/vn-badsite-filter/vn-badsite-filter-bind.conf
-- https://malware-filter.gitlab.io/vn-badsite-filter/vn-badsite-filter-bind.conf
-- https://malware-filter.pages.dev/vn-badsite-filter-bind.conf
-- https://vn-badsite-filter.pages.dev/vn-badsite-filter-bind.conf
-
-</details>
-
 ## Response Policy Zone
 
 This blocklist includes domains only.
-
-- https://malware-filter.gitlab.io/malware-filter/vn-badsite-filter-rpz.conf
-
-<details>
-<summary>Mirrors</summary>
-
-- https://curbengh.github.io/malware-filter/vn-badsite-filter-rpz.conf
-- https://curbengh.github.io/vn-badsite-filter/vn-badsite-filter-rpz.conf
-- https://malware-filter.gitlab.io/vn-badsite-filter/vn-badsite-filter-rpz.conf
-- https://malware-filter.pages.dev/vn-badsite-filter-rpz.conf
-- https://vn-badsite-filter.pages.dev/vn-badsite-filter-rpz.conf
-
-</details>
 
 ## Unbound
 
@@ -247,19 +130,6 @@ Save the rulesets to "/usr/local/etc/unbound/vn-badsite-filter-unbound.conf". Re
 Configure Unbound to use the blocklist:
 
 `printf '\n  include: "/usr/local/etc/unbound/vn-badsite-filter-unbound.conf"\n' >> /etc/unbound/unbound.conf`
-
-- https://malware-filter.gitlab.io/malware-filter/vn-badsite-filter-unbound.conf
-
-<details>
-<summary>Mirrors</summary>
-
-- https://curbengh.github.io/malware-filter/vn-badsite-filter-unbound.conf
-- https://curbengh.github.io/vn-badsite-filter/vn-badsite-filter-unbound.conf
-- https://malware-filter.gitlab.io/vn-badsite-filter/vn-badsite-filter-unbound.conf
-- https://malware-filter.pages.dev/vn-badsite-filter-unbound.conf
-- https://vn-badsite-filter.pages.dev/vn-badsite-filter-unbound.conf
-
-</details>
 
 ## dnscrypt-proxy
 
@@ -275,42 +145,9 @@ Configure dnscrypt-proxy to use the blocklist:
 +  blocked_ips_file = '/etc/dnscrypt-proxy/vn-badsite-filter-dnscrypt-blocked-ips.txt'
 ```
 
-- https://malware-filter.gitlab.io/malware-filter/vn-badsite-filter-dnscrypt-blocked-names.txt
-- https://malware-filter.gitlab.io/malware-filter/vn-badsite-filter-dnscrypt-blocked-ips.txt
-
-<details>
-<summary>Mirrors</summary>
-
-- https://curbengh.github.io/malware-filter/vn-badsite-filter-dnscrypt-blocked-names.txt
-- https://curbengh.github.io/vn-badsite-filter/vn-badsite-filter-dnscrypt-blocked-names.txt
-- https://malware-filter.gitlab.io/vn-badsite-filter/vn-badsite-filter-dnscrypt-blocked-names.txt
-- https://malware-filter.pages.dev/vn-badsite-filter-dnscrypt-blocked-names.txt
-- https://vn-badsite-filter.pages.dev/vn-badsite-filter-dnscrypt-blocked-names.txt
-
-- https://curbengh.github.io/malware-filter/vn-badsite-filter-dnscrypt-blocked-ips.txt
-- https://curbengh.github.io/vn-badsite-filter/vn-badsite-filter-dnscrypt-blocked-ips.txt
-- https://malware-filter.gitlab.io/vn-badsite-filter/vn-badsite-filter-dnscrypt-blocked-ips.txt
-- https://malware-filter.pages.dev/vn-badsite-filter-dnscrypt-blocked-ips.txt
-- https://vn-badsite-filter.pages.dev/vn-badsite-filter-dnscrypt-blocked-ips.txt
-
-</details>
-
 ## Tracking Protection List (IE)
 
 This blocklist includes domains only. Supported in Internet Explorer 9+.
-
-- https://malware-filter.gitlab.io/malware-filter/vn-badsite-filter.tpl
-
-<details>
-<summary>Mirrors</summary>
-
-- https://curbengh.github.io/malware-filter/vn-badsite-filter.tpl
-- https://curbengh.github.io/vn-badsite-filter/vn-badsite-filter.tpl
-- https://malware-filter.gitlab.io/vn-badsite-filter/vn-badsite-filter.tpl
-- https://malware-filter.pages.dev/vn-badsite-filter.tpl
-- https://vn-badsite-filter.pages.dev/vn-badsite-filter.tpl
-
-</details>
 
 ## Snort2
 
@@ -321,19 +158,6 @@ Save the ruleset to "/etc/snort/rules/vn-badsite-filter-snort2.rules". Refer to 
 Configure Snort to use the ruleset:
 
 `printf "\ninclude \$RULE_PATH/urlhaus-filter-snort2-online.rules\n" >> /etc/snort/snort.conf`
-
-- https://malware-filter.gitlab.io/malware-filter/vn-badsite-filter-snort2.rules
-
-<details>
-<summary>Mirrors</summary>
-
-- https://curbengh.github.io/malware-filter/vn-badsite-filter-snort2.rules
-- https://curbengh.github.io/vn-badsite-filter/vn-badsite-filter-snort2.rules
-- https://malware-filter.gitlab.io/vn-badsite-filter/vn-badsite-filter-snort2.rules
-- https://malware-filter.pages.dev/vn-badsite-filter-snort2.rules
-- https://vn-badsite-filter.pages.dev/vn-badsite-filter-snort2.rules
-
-</details>
 
 ## Snort3
 
@@ -352,19 +176,6 @@ ips =
 }
 ```
 
-- https://malware-filter.gitlab.io/malware-filter/vn-badsite-filter-snort3.rules
-
-<details>
-<summary>Mirrors</summary>
-
-- https://curbengh.github.io/malware-filter/vn-badsite-filter-snort3.rules
-- https://curbengh.github.io/vn-badsite-filter/vn-badsite-filter-snort3.rules
-- https://malware-filter.gitlab.io/vn-badsite-filter/vn-badsite-filter-snort3.rules
-- https://malware-filter.pages.dev/vn-badsite-filter-snort3.rules
-- https://vn-badsite-filter.pages.dev/vn-badsite-filter-snort3.rules
-
-</details>
-
 ## Suricata
 
 Save the ruleset to "/etc/suricata/rules/vn-badsite-filter-suricata.rules". Refer to this [guide](https://gitlab.com/malware-filter/malware-filter/wikis/update-filter) for auto-update.
@@ -378,24 +189,13 @@ rule-files:
 +  - vn-badsite-filter-suricata.rules
 ```
 
-- https://malware-filter.gitlab.io/malware-filter/vn-badsite-filter-suricata.rules
-
-<details>
-<summary>Mirrors</summary>
-
-- https://curbengh.github.io/malware-filter/vn-badsite-filter-suricata.rules
-- https://curbengh.github.io/vn-badsite-filter/vn-badsite-filter-suricata.rules
-- https://malware-filter.gitlab.io/vn-badsite-filter/vn-badsite-filter-suricata.rules
-- https://malware-filter.pages.dev/vn-badsite-filter-suricata.rules
-- https://vn-badsite-filter.pages.dev/vn-badsite-filter-suricata.rules
-
-</details>
-
 ## Splunk
 
 A CSV file for Splunk [lookup](https://docs.splunk.com/Documentation/Splunk/9.0.2/Knowledge/Aboutlookupsandfieldactions). This ruleset includes online URLs only.
 
-Either upload the file via GUI or save the file in `$SPLUNK_HOME/Splunk/etc/system/lookups` or app-specific `$SPLUNK_HOME/etc/YourApp/apps/search/lookups`. Refer to this [guide](https://gitlab.com/malware-filter/malware-filter/wikis/update-filter) or [Getwatchlist](https://splunkbase.splunk.com/app/635) app for auto-update.
+Either upload the file via GUI or save the file in `$SPLUNK_HOME/Splunk/etc/system/lookups` or app-specific `$SPLUNK_HOME/etc/YourApp/apps/search/lookups`.
+
+Or use [malware-filter add-on](https://splunkbase.splunk.com/app/6970) to install this lookup and optionally auto-update it.
 
 Columns:
 
@@ -403,19 +203,6 @@ Columns:
 | ------------ | ---------- | -------------------------------------------- | -------------------- |
 | example.com  |            | vn-badsite-filter malicious website detected | 2022-12-21T12:34:56Z |
 | example2.com | /some-path | vn-badsite-filter malicious website detected | 2022-12-21T12:34:56Z |
-
-- https://malware-filter.gitlab.io/malware-filter/vn-badsite-filter-splunk.csv
-
-<details>
-<summary>Mirrors</summary>
-
-- https://curbengh.github.io/malware-filter/vn-badsite-filter-splunk.csv
-- https://curbengh.github.io/vn-badsite-filter/vn-badsite-filter-splunk.csv
-- https://malware-filter.gitlab.io/vn-badsite-filter/vn-badsite-filter-splunk.csv
-- https://malware-filter.pages.dev/vn-badsite-filter-splunk.csv
-- https://vn-badsite-filter.pages.dev/vn-badsite-filter-splunk.csv
-
-</details>
 
 ## Compressed version
 
