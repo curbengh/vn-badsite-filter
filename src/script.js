@@ -1,7 +1,10 @@
 'use strict'
 
-const { join } = require('path')
-const { readFile, rm, writeFile } = require('fs/promises')
+import { dirname, join } from 'node:path'
+import { readFile, rm, writeFile } from 'node:fs/promises'
+import { fileURLToPath } from 'node:url'
+
+const __dirname = dirname(fileURLToPath(import.meta.url))
 const { parse } = JSON
 
 const f = async () => {
