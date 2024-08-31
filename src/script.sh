@@ -49,7 +49,6 @@ cd "tmp/"
 
 # Prepare datasets
 curl -L "https://api.chongluadao.vn/v2/blacklistdomains" -o "blacklistdomains.json"
-curl -L "https://api.chongluadao.vn/v2/blacklistlinks" -o "blacklistlinks.json"
 
 # Extract tracking links
 node "../src/script.js"
@@ -67,7 +66,7 @@ SECOND_LINE="! Updated: $CURRENT_TIME"
 THIRD_LINE="! Expires: 1 day (update frequency)"
 FOURTH_LINE="! Homepage: https://gitlab.com/malware-filter/vn-badsite-filter"
 FIFTH_LINE="! License: https://gitlab.com/malware-filter/vn-badsite-filter#license"
-SIXTH_LINE="! Source: https://api.chongluadao.vn/v2/blacklistdomains & https://api.chongluadao.vn/v2/blacklistlinks"
+SIXTH_LINE="! Source: https://api.chongluadao.vn/v2/blacklistdomains"
 COMMENT_UBO="$FIRST_LINE\n$SECOND_LINE\n$THIRD_LINE\n$FOURTH_LINE\n$FIFTH_LINE\n$SIXTH_LINE"
 
 mkdir -p "../public/"
