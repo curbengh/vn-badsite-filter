@@ -1,0 +1,8 @@
+# Title: VN Malicious IPs Blocklist
+# Description: Block malicious domains targeting Vietnamese users
+# Updated: 2024-09-09T00:20:50Z
+# Expires: 1 day (update frequency)
+# Homepage: https://gitlab.com/malware-filter/vn-badsite-filter
+# License: https://gitlab.com/malware-filter/vn-badsite-filter#license
+# Source: https://api.chongluadao.vn/v2/blacklistdomains
+207.148.115.161
