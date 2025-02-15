@@ -3,6 +3,7 @@
 - Formats
   - [URL-based](#url-based)
   - [Domain-based](#domain-based)
+  - [Wildcard asterisk](#wildcard-asterisk)
   - [Hosts-based](#hosts-based)
   - [Domain-based (AdGuard Home)](#domain-based-adguard-home)
   - [URL-based (AdGuard)](#url-based-adguard)
@@ -36,6 +37,7 @@ A blocklist of malicious (malware, scam, phishing) websites that are targeting V
 | BIND [zone](#bind) | [link](https://malware-filter.gitlab.io/malware-filter/vn-badsite-filter-bind.conf) | [link](https://curbengh.github.io/malware-filter/vn-badsite-filter-bind.conf) | [link](https://curbengh.github.io/vn-badsite-filter/vn-badsite-filter-bind.conf) | [link](https://malware-filter.gitlab.io/vn-badsite-filter/vn-badsite-filter-bind.conf) | [link](https://malware-filter.pages.dev/vn-badsite-filter-bind.conf) | [link](https://vn-badsite-filter.pages.dev/vn-badsite-filter-bind.conf) |
 | BIND [RPZ](#response-policy-zone) | [link](https://malware-filter.gitlab.io/malware-filter/vn-badsite-filter-rpz.conf) | [link](https://curbengh.github.io/malware-filter/vn-badsite-filter-rpz.conf) | [link](https://curbengh.github.io/vn-badsite-filter/vn-badsite-filter-rpz.conf) | [link](https://malware-filter.gitlab.io/vn-badsite-filter/vn-badsite-filter-rpz.conf) | [link](https://malware-filter.pages.dev/vn-badsite-filter-rpz.conf) | [link](https://vn-badsite-filter.pages.dev/vn-badsite-filter-rpz.conf) |
 | [dnscrypt-proxy](#dnscrypt-proxy) | [names.txt](https://malware-filter.gitlab.io/malware-filter/vn-badsite-filter-dnscrypt-blocked-names.txt), [ips.txt](https://malware-filter.gitlab.io/malware-filter/vn-badsite-filter-dnscrypt-blocked-ips.txt) | [names.txt](https://curbengh.github.io/malware-filter/vn-badsite-filter-dnscrypt-blocked-names.txt), [ips.txt](https://curbengh.github.io/malware-filter/vn-badsite-filter-dnscrypt-blocked-ips.txt) | [names.txt](https://curbengh.github.io/vn-badsite-filter/vn-badsite-filter-dnscrypt-blocked-names.txt), [ips.txt](https://curbengh.github.io/vn-badsite-filter/vn-badsite-filter-dnscrypt-blocked-ips.txt) | [names.txt](https://malware-filter.gitlab.io/vn-badsite-filter/vn-badsite-filter-dnscrypt-blocked-names.txt), [ips.txt](https://malware-filter.gitlab.io/vn-badsite-filter/vn-badsite-filter-dnscrypt-blocked-ips.txt) | [names.txt](https://malware-filter.pages.dev/vn-badsite-filter-dnscrypt-blocked-names.txt), [ips.txt](https://malware-filter.pages.dev/vn-badsite-filter-dnscrypt-blocked-ips.txt) | [names.txt](https://vn-badsite-filter.pages.dev/vn-badsite-filter-dnscrypt-blocked-names.txt), [ips.txt](https://vn-badsite-filter.pages.dev/vn-badsite-filter-dnscrypt-blocked-ips.txt) |
+| [blocky](#wildcard-asterisk) | [link](https://malware-filter.gitlab.io/malware-filter/vn-badsite-filter-wildcard.txt) | [link](https://curbengh.github.io/malware-filter/vn-badsite-filter-wildcard.txt) | [link](https://curbengh.github.io/vn-badsite-filter/vn-badsite-filter-wildcard.txt) | [link](https://malware-filter.gitlab.io/vn-badsite-filter/vn-badsite-filter-wildcard.txt) | [link](https://malware-filter.pages.dev/vn-badsite-filter-wildcard.txt) | [link](https://vn-badsite-filter.pages.dev/vn-badsite-filter-wildcard.txt) |
 | [Internet Explorer](#tracking-protection-list-ie) | [link](https://malware-filter.gitlab.io/malware-filter/vn-badsite-filter.tpl) | [link](https://curbengh.github.io/malware-filter/vn-badsite-filter.tpl) | [link](https://curbengh.github.io/vn-badsite-filter/vn-badsite-filter.tpl) | [link](https://malware-filter.gitlab.io/vn-badsite-filter/vn-badsite-filter.tpl) | [link](https://malware-filter.pages.dev/vn-badsite-filter.tpl) | [link](https://vn-badsite-filter.pages.dev/vn-badsite-filter.tpl) |
 | [Snort2](#snort2) | [link](https://malware-filter.gitlab.io/malware-filter/vn-badsite-filter-snort2.rules) | [link](https://curbengh.github.io/malware-filter/vn-badsite-filter-snort2.rules) | [link](https://curbengh.github.io/vn-badsite-filter/vn-badsite-filter-snort2.rules) | [link](https://malware-filter.gitlab.io/vn-badsite-filter/vn-badsite-filter-snort2.rules) | [link](https://malware-filter.pages.dev/vn-badsite-filter-snort2.rules) | [link](https://vn-badsite-filter.pages.dev/vn-badsite-filter-snort2.rules) |
 | [Snort3](#snort3) | [link](https://malware-filter.gitlab.io/malware-filter/vn-badsite-filter-snort3.rules) | [link](https://curbengh.github.io/malware-filter/vn-badsite-filter-snort3.rules) | [link](https://curbengh.github.io/vn-badsite-filter/vn-badsite-filter-snort3.rules) | [link](https://malware-filter.gitlab.io/vn-badsite-filter/vn-badsite-filter-snort3.rules) | [link](https://malware-filter.pages.dev/vn-badsite-filter-snort3.rules) | [link](https://vn-badsite-filter.pages.dev/vn-badsite-filter-snort3.rules) |
@@ -68,6 +70,10 @@ _Requires Vivaldi Desktop/Android 3.3+, blocking level must be at least "Block T
 Import the URL into Vivaldi's **Tracker Blocking Sources** to subscribe.
 
 ## Domain-based
+
+This blocklist includes domains and IP addresses.
+
+## Wildcard asterisk
 
 This blocklist includes domains and IP addresses.
 

@@ -166,6 +166,13 @@ sed "1i $COMMENT" | \
 sed "1s/Domains/IPs/" > "../public/vn-badsite-filter-dnscrypt-blocked-ips.txt"
 
 
+## Wildcard subdomain
+cat "domains.txt" | \
+sed "s/^/*./g" | \
+sed "1i $COMMENT" | \
+sed "1s/Domains/Wildcard Asterisk/" > "../public/vn-badsite-filter-wildcard.txt"
+
+
 ## IE blocklist
 COMMENT_IE="msFilterList\n$COMMENT\n: Expires=1\n#"
 
