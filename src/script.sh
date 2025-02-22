@@ -170,7 +170,7 @@ sed "1s/Domains/IPs/" > "../public/vn-badsite-filter-dnscrypt-blocked-ips.txt"
 cat "domains.txt" | \
 sed "s/^/*./g" | \
 sed "1i $COMMENT" | \
-sed "1s/Domains/Wildcard Asterisk/" > "../public/vn-badsite-filter-wildcard.txt"
+sed "1s/Blocklist/Wildcard Asterisk Blocklist/" > "../public/vn-badsite-filter-wildcard.txt"
 
 
 ## IE blocklist
