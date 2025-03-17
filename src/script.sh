@@ -182,34 +182,15 @@ sed "1i $COMMENT_IE" | \
 sed "2s/Domains Blocklist/Hosts Blocklist (IE)/" > "../public/vn-badsite-filter.tpl"
 
 
-set +x
-
 ## Snort & Suricata rulesets
 rm -f "../public/vn-badsite-filter-snort2.rules" \
   "../public/vn-badsite-filter-snort3.rules" \
   "../public/vn-badsite-filter-suricata.rules" \
   "../public/vn-badsite-filter-splunk.csv"
 
-SID="500000001"
-while read DOMAIN; do
-  SN_RULE="alert tcp \$HOME_NET any -> \$EXTERNAL_NET [80,443] (msg:\"vn-badsite-filter malicious website detected\"; flow:established,from_client; content:\"GET\"; http_method; content:\"$DOMAIN\"; content:\"Host\"; http_header; classtype:attempted-recon; sid:$SID; rev:1;)"
+export CURRENT_TIME
+cat "domains.txt" | node "../src/ids.js"
 
-  SN3_RULE="alert http \$HOME_NET any -> \$EXTERNAL_NET any (msg:\"vn-badsite-filter malicious website detected\"; http_header:field host; content:\"$DOMAIN\",nocase; classtype:attempted-recon; sid:$SID; rev:1;)"
-
-  SR_RULE="alert http \$HOME_NET any -> \$EXTERNAL_NET any (msg:\"vn-badsite-filter malicious website detected\"; flow:established,from_client; http.method; content:\"GET\"; http.host; content:\"$DOMAIN\"; classtype:attempted-recon; sid:$SID; rev:1;)"
-
-  SP_RULE="\"$DOMAIN\",\"\",\"vn-badsite-filter malicious website detected\",\"$CURRENT_TIME\""
-
-  echo "$SN_RULE" >> "../public/vn-badsite-filter-snort2.rules"
-  echo "$SN3_RULE" >> "../public/vn-badsite-filter-snort3.rules"
-  echo "$SR_RULE" >> "../public/vn-badsite-filter-suricata.rules"
-  echo "$SP_RULE" >> "../public/vn-badsite-filter-splunk.csv"
-
-  SID=$(( $SID + 1 ))
-done < "domains.txt"
-
-
-set -x
 
 sed -i "1i $COMMENT" "../public/vn-badsite-filter-snort2.rules"
 sed -i "1s/Blocklist/Snort2 Ruleset/" "../public/vn-badsite-filter-snort2.rules"
