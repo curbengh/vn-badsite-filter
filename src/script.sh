@@ -36,9 +36,6 @@ check_grep() {
 }
 check_grep
 
-if command -v bun &> /dev/null; then
-  alias node="bun"
-fi
 node --version
 
 
