@@ -100,16 +100,21 @@ COMMENT=$(printf "$COMMENT_UBO" | sed "s/^!/#/" | awk '{printf "%s\\n", $0}' | h
 cat "domains.txt" | \
 sed "1i $COMMENT" > "../public/vn-badsite-filter-domains.txt"
 
+cat "domains.txt" | \
+# exclude IPv4
+grep -vE "^([0-9]{1,3}[\.]){3}[0-9]{1,3}$" | \
+# exclude IPv6
+grep -vE "^\[" > "hosts.txt"
 
 ## Hosts file blocklist
-cat "domains.txt" | \
+cat "hosts.txt" | \
 sed "s/^/0.0.0.0 /" | \
 sed "1i $COMMENT" | \
 sed "1s/Domains/Hosts/" > "../public/vn-badsite-filter-hosts.txt"
 
 
 ## Dnsmasq-compatible blocklist
-cat "domains.txt" | \
+cat "hosts.txt" | \
 sed "s/^/address=\//" | \
 sed "s/$/\/0.0.0.0/" | \
 sed "1i $COMMENT" | \
@@ -117,7 +122,7 @@ sed "1s/Blocklist/dnsmasq Blocklist/" > "../public/vn-badsite-filter-dnsmasq.con
 
 
 ## BIND-compatible blocklist
-cat "domains.txt" | \
+cat "hosts.txt" | \
 sed 's/^/zone "/' | \
 sed 's/$/" { type master; notify no; file "null.zone.file"; };/' | \
 sed "1i $COMMENT" | \
@@ -128,7 +133,7 @@ sed "1s/Blocklist/BIND Blocklist/" > "../public/vn-badsite-filter-bind.conf"
 CURRENT_UNIX_TIME="$(date +%s)"
 RPZ_SYNTAX="\n\$TTL 30\n@ IN SOA localhost. root.localhost. $CURRENT_UNIX_TIME 86400 3600 604800 30\n NS localhost.\n"
 
-cat "domains.txt" | \
+cat "hosts.txt" | \
 sed "s/$/ CNAME ./" | \
 sed '1 i\'"$RPZ_SYNTAX"'' | \
 sed "1i $COMMENT" | \
@@ -137,7 +142,7 @@ sed "1s/Blocklist/RPZ Blocklist/" > "../public/vn-badsite-filter-rpz.conf"
 
 
 ## Unbound-compatible blocklist
-cat "domains.txt" | \
+cat "hosts.txt" | \
 sed 's/^/local-zone: "/' | \
 sed 's/$/" always_nxdomain/' | \
 sed "1i $COMMENT" | \
@@ -146,20 +151,26 @@ sed "1s/Blocklist/Unbound Blocklist/" > "../public/vn-badsite-filter-unbound.con
 
 ## dnscrypt-proxy blocklists
 # name-based
-cat "domains.txt" | \
+cat "hosts.txt" | \
 sed "1i $COMMENT" | \
 sed "1s/Domains/Names/" > "../public/vn-badsite-filter-dnscrypt-blocked-names.txt"
 
-# IPv4-based
-cat "domains.txt" | \
-sort | \
-grep -E "^([0-9]{1,3}[\.]){3}[0-9]{1,3}$" | \
-sed "1i $COMMENT" | \
-sed "1s/Domains/IPs/" > "../public/vn-badsite-filter-dnscrypt-blocked-ips.txt"
+# IPv4/6
+if grep -Eq "^(([0-9]{1,3}[\.]){3}[0-9]{1,3}$|\[)" "domains.txt"; then
+  cat "domains.txt" | \
+  grep -E "^(([0-9]{1,3}[\.]){3}[0-9]{1,3}$|\[)" | \
+  sed -r "s/\[|\]//g" | \
+  sed "1i $COMMENT" | \
+  sed "1s/Domains/IPs/" > "../public/vn-badsite-filter-dnscrypt-blocked-ips.txt"
+else
+  echo | \
+  sed "1i $COMMENT" | \
+  sed "1s/Domains/IPs/" > "../public/vn-badsite-filter-dnscrypt-blocked-ips.txt"
+fi
 
 
 ## Wildcard subdomain
-cat "domains.txt" | \
+cat "hosts.txt" | \
 sed "s/^/*./" | \
 sed "1i $COMMENT" | \
 sed "1s/Blocklist/Wildcard Asterisk Blocklist/" > "../public/vn-badsite-filter-wildcard.txt"
