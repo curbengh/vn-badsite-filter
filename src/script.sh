@@ -69,13 +69,11 @@ COMMENT_UBO="$FIRST_LINE\n$SECOND_LINE\n$THIRD_LINE\n$FOURTH_LINE\n$FIFTH_LINE\n
 mkdir -p "../public/"
 
 cat "domains.txt" | \
-sort | \
 sed "1i $COMMENT_UBO" > "../public/vn-badsite-filter.txt"
 
 
 # Adguard Home
 cat "domains.txt" | \
-sort | \
 sed -e "s/^/||/" -e "s/$/^/" | \
 sed "1i $COMMENT_UBO" | \
 sed "1s/Blocklist/Blocklist (AdGuard Home)/" > "../public/vn-badsite-filter-agh.txt"
@@ -83,7 +81,6 @@ sed "1s/Blocklist/Blocklist (AdGuard Home)/" > "../public/vn-badsite-filter-agh.
 
 # Adguard browser extension
 cat "domains.txt" | \
-sort | \
 sed -e "s/^/||/" -e "s/$/\$all/" | \
 sed "1i $COMMENT_UBO" | \
 sed "1s/Blocklist/Blocklist (AdGuard)/" > "../public/vn-badsite-filter-ag.txt"
@@ -91,7 +88,6 @@ sed "1s/Blocklist/Blocklist (AdGuard)/" > "../public/vn-badsite-filter-ag.txt"
 
 # Vivaldi
 cat "domains.txt" | \
-sort | \
 sed -e "s/^/||/" -e 's/$/$document/' | \
 sed "1i $COMMENT_UBO" | \
 sed "1s/Blocklist/Blocklist (Vivaldi)/" > "../public/vn-badsite-filter-vivaldi.txt"
@@ -102,7 +98,6 @@ sed "1s/Blocklist/Blocklist (Vivaldi)/" > "../public/vn-badsite-filter-vivaldi.t
 COMMENT=$(printf "$COMMENT_UBO" | sed "s/^!/#/" | awk '{printf "%s\\n", $0}' | head -c -2)
 
 cat "domains.txt" | \
-sort | \
 sed "1i $COMMENT" > "../public/vn-badsite-filter-domains.txt"
 
 
