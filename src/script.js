@@ -13,7 +13,13 @@ await rm(outputFile, { force: true })
 const domainsPath = join(__dirname, '../tmp/blacklistdomains.json')
 
 const domainsStr = await readFile(domainsPath)
-const domainsArray = parse(domainsStr)
+let domainsArray = []
+try {
+  domainsArray = parse(domainsStr)
+} catch {
+  console.error('Invalid json.')
+  process.exit(1)
+}
 
 const domains = new Set()
 
