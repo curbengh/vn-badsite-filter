@@ -79,7 +79,7 @@ sed "1i $COMMENT_UBO" > "../public/vn-badsite-filter.txt"
 # Adguard Home
 cat "domains.txt" | \
 sort | \
-sed -e "s/^/||/g" -e "s/$/^/g" | \
+sed -e "s/^/||/" -e "s/$/^/" | \
 sed "1i $COMMENT_UBO" | \
 sed "1s/Blocklist/Blocklist (AdGuard Home)/" > "../public/vn-badsite-filter-agh.txt"
 
@@ -87,7 +87,7 @@ sed "1s/Blocklist/Blocklist (AdGuard Home)/" > "../public/vn-badsite-filter-agh.
 # Adguard browser extension
 cat "domains.txt" | \
 sort | \
-sed -e "s/^/||/g" -e "s/$/\$all/g" | \
+sed -e "s/^/||/" -e "s/$/\$all/" | \
 sed "1i $COMMENT_UBO" | \
 sed "1s/Blocklist/Blocklist (AdGuard)/" > "../public/vn-badsite-filter-ag.txt"
 
@@ -95,14 +95,14 @@ sed "1s/Blocklist/Blocklist (AdGuard)/" > "../public/vn-badsite-filter-ag.txt"
 # Vivaldi
 cat "domains.txt" | \
 sort | \
-sed -e "s/^/||/g" -e "s/$/\$document/g" | \
+sed -e "s/^/||/" -e 's/$/$document/' | \
 sed "1i $COMMENT_UBO" | \
 sed "1s/Blocklist/Blocklist (Vivaldi)/" > "../public/vn-badsite-filter-vivaldi.txt"
 
 
 ## Hash comment
 # awk + head is a workaround for sed prepend
-COMMENT=$(printf "$COMMENT_UBO" | sed "s/^!/#/g" | awk '{printf "%s\\n", $0}' | head -c -2)
+COMMENT=$(printf "$COMMENT_UBO" | sed "s/^!/#/" | awk '{printf "%s\\n", $0}' | head -c -2)
 
 cat "domains.txt" | \
 sort | \
@@ -111,23 +111,23 @@ sed "1i $COMMENT" > "../public/vn-badsite-filter-domains.txt"
 
 ## Hosts file blocklist
 cat "domains.txt" | \
-sed "s/^/0.0.0.0 /g" | \
+sed "s/^/0.0.0.0 /" | \
 sed "1i $COMMENT" | \
 sed "1s/Domains/Hosts/" > "../public/vn-badsite-filter-hosts.txt"
 
 
 ## Dnsmasq-compatible blocklist
 cat "domains.txt" | \
-sed "s/^/address=\//g" | \
-sed "s/$/\/0.0.0.0/g" | \
+sed "s/^/address=\//" | \
+sed "s/$/\/0.0.0.0/" | \
 sed "1i $COMMENT" | \
 sed "1s/Blocklist/dnsmasq Blocklist/" > "../public/vn-badsite-filter-dnsmasq.conf"
 
 
 ## BIND-compatible blocklist
 cat "domains.txt" | \
-sed 's/^/zone "/g' | \
-sed 's/$/" { type master; notify no; file "null.zone.file"; };/g' | \
+sed 's/^/zone "/' | \
+sed 's/$/" { type master; notify no; file "null.zone.file"; };/' | \
 sed "1i $COMMENT" | \
 sed "1s/Blocklist/BIND Blocklist/" > "../public/vn-badsite-filter-bind.conf"
 
@@ -137,17 +137,17 @@ CURRENT_UNIX_TIME="$(date +%s)"
 RPZ_SYNTAX="\n\$TTL 30\n@ IN SOA localhost. root.localhost. $CURRENT_UNIX_TIME 86400 3600 604800 30\n NS localhost.\n"
 
 cat "domains.txt" | \
-sed "s/$/ CNAME ./g" | \
+sed "s/$/ CNAME ./" | \
 sed '1 i\'"$RPZ_SYNTAX"'' | \
 sed "1i $COMMENT" | \
-sed "s/^#/;/g" | \
+sed "s/^#/;/" | \
 sed "1s/Blocklist/RPZ Blocklist/" > "../public/vn-badsite-filter-rpz.conf"
 
 
 ## Unbound-compatible blocklist
 cat "domains.txt" | \
-sed 's/^/local-zone: "/g' | \
-sed 's/$/" always_nxdomain/g' | \
+sed 's/^/local-zone: "/' | \
+sed 's/$/" always_nxdomain/' | \
 sed "1i $COMMENT" | \
 sed "1s/Blocklist/Unbound Blocklist/" > "../public/vn-badsite-filter-unbound.conf"
 
@@ -168,7 +168,7 @@ sed "1s/Domains/IPs/" > "../public/vn-badsite-filter-dnscrypt-blocked-ips.txt"
 
 ## Wildcard subdomain
 cat "domains.txt" | \
-sed "s/^/*./g" | \
+sed "s/^/*./" | \
 sed "1i $COMMENT" | \
 sed "1s/Blocklist/Wildcard Asterisk Blocklist/" > "../public/vn-badsite-filter-wildcard.txt"
 
@@ -177,7 +177,7 @@ sed "1s/Blocklist/Wildcard Asterisk Blocklist/" > "../public/vn-badsite-filter-w
 COMMENT_IE="msFilterList\n$COMMENT\n: Expires=1\n#"
 
 cat "domains.txt" | \
-sed "s/^/-d /g" | \
+sed "s/^/-d /" | \
 sed "1i $COMMENT_IE" | \
 sed "2s/Domains Blocklist/Hosts Blocklist (IE)/" > "../public/vn-badsite-filter.tpl"
 
