@@ -98,6 +98,8 @@ sed "1s/Blocklist/Blocklist (Vivaldi)/" > "../public/vn-badsite-filter-vivaldi.t
 COMMENT=$(printf "$COMMENT_UBO" | sed "s/^!/#/" | awk '{printf "%s\\n", $0}' | head -c -2)
 
 cat "domains.txt" | \
+# remove IPv6 bracket
+sed -r "s/\[|\]//g" | \
 sed "1i $COMMENT" > "../public/vn-badsite-filter-domains.txt"
 
 cat "domains.txt" | \
@@ -180,6 +182,7 @@ sed "1s/Blocklist/Wildcard Asterisk Blocklist/" > "../public/vn-badsite-filter-w
 COMMENT_IE="msFilterList\n$COMMENT\n: Expires=1\n#"
 
 cat "domains.txt" | \
+sed -r "s/\[|\]//g" | \
 sed "s/^/-d /" | \
 sed "1i $COMMENT_IE" | \
 sed "2s/Domains Blocklist/Hosts Blocklist (IE)/" > "../public/vn-badsite-filter.tpl"
