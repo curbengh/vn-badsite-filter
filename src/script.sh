@@ -81,14 +81,14 @@ sed "1s/Blocklist/Blocklist (AdGuard Home)/" > "../public/vn-badsite-filter-agh.
 
 # Adguard browser extension
 cat "domains.txt" | \
-sed -e "s/^/||/" -e "s/$/\$all/" | \
+sed -e "s/^/||/" -e 's/$/^$all/' | \
 sed "1i $COMMENT_UBO" | \
 sed "1s/Blocklist/Blocklist (AdGuard)/" > "../public/vn-badsite-filter-ag.txt"
 
 
 # Vivaldi
 cat "domains.txt" | \
-sed -e "s/^/||/" -e 's/$/$document/' | \
+sed -e "s/^/||/" -e 's/$/^$document/' | \
 sed "1i $COMMENT_UBO" | \
 sed "1s/Blocklist/Blocklist (Vivaldi)/" > "../public/vn-badsite-filter-vivaldi.txt"
 
