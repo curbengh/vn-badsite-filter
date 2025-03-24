@@ -36,8 +36,6 @@ check_grep() {
 }
 check_grep
 
-node --version
-
 
 rm -rf "tmp/"
 mkdir -p "tmp/"
