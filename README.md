@@ -1,5 +1,7 @@
 # VN Malicious Domains Blocklist
 
+Update (2025-05-03): Daily update of this blocklist has been stopped due to deprecation of upstream source. Other malware-filter blocklists are not affected.
+
 - Formats
   - [URL-based](#url-based)
   - [Domain-based](#domain-based)
